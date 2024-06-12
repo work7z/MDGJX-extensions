@@ -1,0 +1,55 @@
+{
+  "name": "miaoda-utils",
+  "version": "1.16.0",
+  "description": "Set of utilities to streamline building MDGJX extensions",
+  "author": "MDGJX Technologies Ltd.",
+  "homepage": "https://developers.MDGJX.com/utils-reference",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "lint": "eslint src/",
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "npm run lint"
+  },
+  "peerDependencies": {
+  },
+  "keywords": [
+    "MDGJX",
+    "utilities",
+    "extensions"
+  ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "content-type": "^1.0.5",
+    "cross-fetch": "^3.1.6",
+    "dequal": "^2.0.3",
+    "media-typer": "^1.1.0",
+    "object-hash": "^3.0.0",
+    "signal-exit": "^4.0.2",
+    "stream-chain": "^2.2.5",
+    "stream-json": "^1.8.0"
+  },
+  "devDependencies": {
+    "@MDGJX/api": "1.52.0",
+    "@types/content-type": "^1.1.6",
+    "@types/media-typer": "^1.1.1",
+    "@types/object-hash": "^3.0.4",
+    "@types/signal-exit": "^3.0.2",
+    "@types/stream-chain": "^2.0.4",
+    "@types/stream-json": "^1.7.7",
+    "@typescript-eslint/eslint-plugin": "6.7.5",
+    "@typescript-eslint/parser": "6.7.5",
+    "eslint": "8.51.0",
+    "eslint-config-prettier": "9.0.0",
+    "eslint-plugin-import": "2.28.1",
+    "eslint-plugin-jest": "27.4.2",
+    "eslint-plugin-prettier": "5.0.0",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "typescript": "5.2.2"
+  }
+}
