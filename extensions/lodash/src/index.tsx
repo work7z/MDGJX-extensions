@@ -1,6 +1,8 @@
 import { ActionPanel, List, Action } from "@raycast/api";
 import { groupBy } from "lodash"; // It will be ironic if I didn't use Lodash here
 import lodash from "./lodash.json";
+import {VALUE} from './temp'
+console.log(VALUE)
 
 export default function Command() {
   const groups = groupBy(lodash, "category");
