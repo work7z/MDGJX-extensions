@@ -1,0 +1,21 @@
+{
+    "mode": "miaoda",
+    "id": "hello-world",
+    "logo": "./assets/icon.png",
+    "name": "测试Hello World组件",
+    "shortDesc": "简单的使用本组件，进行功能的基础扩展",
+    "description": "# 这是基本的描述内容，后续可以通过@REAEDME的方式进行额外扩展",
+    "development": {
+        "dev": "http://localhost:40001"
+    },
+    "menus": "node ./miaoda-get-menu.js",
+    "init": {
+        "dev": "npm i -S -D --verbose --force",
+        "build": "npm i --omit=dev --force"
+    },
+    "start": {
+        "dev": "npm run dev",
+        "build": "npm run build"
+    },
+    "include": ["dist"]
+}
