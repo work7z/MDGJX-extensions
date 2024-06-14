@@ -1,11 +1,11 @@
 {
     "mode": "miaoda",
-    "name": "测试Hello World组件",
-    "id": "hello-world",
+    "name": "开发人员工具",
+    "id": "dev-tools",
     "version": "1.0.0",
     "logo": "./assets/icon.png",
-    "shortDesc": "简单的使用本组件，进行功能的基础扩展",
-    "description": "# 这是基本的描述内容，后续可以通过@REAEDME的方式进行额外扩展",
+    "shortDesc": "开发秒达工具箱插件系列必备",
+    "description": "如果您需要开发秒达工具箱，请确保安装本插件",
     "development": {
         "entryLink": "http://localhost:40001"
     },
