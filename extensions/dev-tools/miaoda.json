@@ -4,7 +4,7 @@
     "id": "dev-tools",
     "version": "1.0.0",
     "logo": "./assets/icon.png",
-    "shortDesc": "开发秒达工具箱插件系列必备",
+    "shortDesc": "秒达工具箱插件开发第一步",
     "description": "如果您需要开发秒达工具箱，请确保安装本插件",
     "development": {
         "entryLink": "http://localhost:40001"
