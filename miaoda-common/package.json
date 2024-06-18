@@ -1,6 +1,6 @@
 {
   "name": "miaoda-common",
-  "version": "1.0.2",
+  "version": "base",
   "description": "",
   "main": "index.ts",
   "scripts": {
