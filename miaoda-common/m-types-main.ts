@@ -1,5 +1,7 @@
 export type MiaodaBasicConfig = {
   mode: string;
+  disabled?: boolean;
+  cwd?: string; // by default, it's $MDGJX_EXT_PATH/$id unless you have a dedicated path 
   id: string;
   version: string;
   logo: string;
@@ -25,4 +27,5 @@ export type MiaodaBasicConfig = {
 
 export const fn_miaoda_registerConfig = (config: MiaodaBasicConfig) => {
   console.log(JSON.stringify(config, null, 2));
+  return config;
 };

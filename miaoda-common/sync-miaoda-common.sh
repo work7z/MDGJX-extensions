@@ -16,20 +16,12 @@ doWork(){
   echo "copy $dir"
   mkdir -p $dir
   rm -rf $dir/*
-  cp -a $rawMTypesDir/* $rawMTypesDir/.* $dir
+  cp -a $rawMTypesDir/*  $dir
 }
-
-extDir=$MDGJX_EXT_ROOT/extensions
-for dir in $(ls $extDir)
-do
-  if [ -d $extDir/$dir ]; then
-    echo "copy $dir"
-    targetMTypesDir=$extDir/$dir/m-types-copy/
-    doWork $targetMTypesDir
-  fi
-done
-
 
 doWork $MDGJX_ROOT/modules/web-server/src/m-types-copy/
 doWork $MDGJX_ROOT/modules/web/src/m-types-copy/
+doWork $MDGJX_EXT_ROOT/extensions-meta/src/m-types-copy/
 
+cd $MDGJX_EXT_ROOT/extensions-meta
+npm run build
