@@ -14,8 +14,12 @@ const extList: {
 
 console.log(JSON.stringify(extList));
 const MDGJX_EXT_ROOT = process.env.MDGJX_EXT_ROOT;
-
+const prevIdObj ={}
 _.forEach(extList, (x, d, n) => {
+    if(prevIdObj[x.id]){
+        throw new Error('id '+x.id+' is duplicated')
+    }
+    prevIdObj[x.id] = true
     console.log('processing '+x.id)
     const currentCwd = x.cwd || path.join(MDGJX_EXT_ROOT, "extensions", x.id);
     const finalMiaodaDistFile = path.join(currentCwd, "miaoda-dist.json");
