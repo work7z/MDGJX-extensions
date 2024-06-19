@@ -13,16 +13,16 @@ export default fn_miaoda_registerConfig({
   description: "# 这是基本的描述内容，后续可以通过@REAEDME的方式进行额外扩展",
   development: {
     entryLink: "http://localhost:40001",
+    setup: {
+      dev: "npm i -S -D --verbose --force",
+      prod: "npm i --omit=dev --force",
+    },
+    run: {
+      dev: "npm run dev",
+      prod: "npm run build",
+    },
   },
   menus: "node ./miaoda-get-menu.js",
-  init: {
-    dev: "npm i -S -D --verbose --force",
-    build: "npm i --omit=dev --force",
-  },
-  start: {
-    dev: "npm run dev",
-    build: "npm run build",
-  },
   keywords: [],
   include: ["dist"],
 });
