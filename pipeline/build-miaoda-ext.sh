@@ -3,8 +3,10 @@ set -e
 cd $(dirname $0)/..
 ROOTDIR=$PWD
 ROOTPKGDIR=$PWD/pkg
+ROOTPKGINFODIR=$PWD/pkginfo
 [ -d $ROOTPKGDIR ] && rm -rf $ROOTPKGDIR
 mkdir $ROOTPKGDIR
+[ ! -d $ROOTPKGINFODIR ] && mkdir $ROOTPKGINFODIR
 cd $MDGJX_EXT_ROOT/extensions
 for extName in $(ls); do
   cd $MDGJX_EXT_ROOT/extensions/$extName
@@ -22,6 +24,13 @@ for extName in $(ls); do
   else 
     version=$(cat $miaodaConfigFile | jq -r '.version')
     id=$(cat $miaodaConfigFile | jq -r '.id')
+    fullId=$extName@$version
+    timestampPkgInfoFile=$ROOTPKGINFODIR/$fullId.timestamp
+    if [ -f $timestampPkgInfoFile ];then
+      echo -e "\033[33mSKIP building $extName since it exist\033[0m"
+      continue;
+    fi
+    date +%s > $timestampPkgInfoFile
     echo "# id: $id"
     if [[ "$id" != "$extName" ]];then 
       echo -e "\033[33mSKIP $extName since id not match\033[0m"
@@ -42,7 +51,7 @@ for extName in $(ls); do
     fi   
     cp ./miaoda-dist.json $mdDistDir
     tar -czvf md-dist.tar.gz $mdDistDir
-    finalTarGz=$ROOTPKGDIR/$extName@$version.tar.gz
+    finalTarGz=$ROOTPKGDIR/$fullId.tar.gz
     echo "# finalTarGz: $finalTarGz"
     mv md-dist.tar.gz $finalTarGz
   fi
@@ -51,4 +60,6 @@ done
 echo "Final Pkg Dir: $ROOTPKGDIR"
 cd $ROOTPKGDIR
 ls -ahlrt
-
+for tarGz in $(ls); do
+  echo "# tarGz: $tarGz"
+done
