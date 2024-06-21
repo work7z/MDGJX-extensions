@@ -3,6 +3,10 @@ set -e
 cd $(dirname $0)/..
 ROOTDIR=$PWD
 ROOTPKGDIR=$PWD/pkg
+
+chmod +x $PWD/pipeline/update-miaoda-config.sh
+$PWD/pipeline/update-miaoda-config.sh
+
 ROOTPKGINFODIR=$PWD/pkginfo
 [ -d $ROOTPKGDIR ] && rm -rf $ROOTPKGDIR
 mkdir $ROOTPKGDIR
@@ -27,7 +31,7 @@ for extName in $(ls); do
     fullId=$extName@$version
     timestampPkgInfoFile=$ROOTPKGINFODIR/$fullId.timestamp
     if [ -f $timestampPkgInfoFile ];then
-      echo -e "\033[33mSKIP building $extName since it exist\033[0m"
+      echo -e "\033[35mBUILT: $extName already exist\033[0m"
       continue;
     fi
     date +%s > $timestampPkgInfoFile

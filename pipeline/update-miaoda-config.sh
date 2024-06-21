@@ -25,3 +25,4 @@ doWork $MDGJX_EXT_ROOT/extensions-meta/src/m-types-copy/
 
 cd $MDGJX_EXT_ROOT/extensions-meta
 npm run build
+
