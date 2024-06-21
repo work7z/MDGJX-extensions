@@ -47,9 +47,14 @@ for extName in $(ls); do
     fullId=$extName@$version
     timestampPkgInfoFile=$ROOTPKGINFODIR/$fullId.timestamp
     md5PkgInfoFile=$ROOTPKGINFODIR/$fullId.md5
+    echo "# fullId: $fullId"
+    echo "# timestampPkgInfoFile: $timestampPkgInfoFile"
+    echo "# md5PkgInfoFile: $md5PkgInfoFile"
     if [ -f $timestampPkgInfoFile ];then
       echo -e "\033[35mBUILT: $extName already exist\033[0m"
       continue;
+    else 
+      echo -e "\033[32mBUILDING: $extName...\033[0m"
     fi
     date +%s > $timestampPkgInfoFile
     echo "# id: $id"
