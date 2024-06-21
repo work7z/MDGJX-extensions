@@ -14,6 +14,17 @@ $PWD/pipeline/update-miaoda-config.sh
 [ -d $ROOTPKGDIR ] && rm -rf $ROOTPKGDIR
 mkdir $ROOTPKGDIR
 [ ! -d $ROOTPKGINFODIR ] && mkdir $ROOTPKGINFODIR
+
+
+
+if [[ "$RUN_MODE" = "prod" ]];then
+  echo "RUN_MODE: $RUN_MODE"
+  remoteExtPkgDir=/home/appuser/extstatic/release-ext-pkg-repo
+  rm -f $ROOTPKGINFODIR/*
+  cd $ROOTPKGINFODIR
+  sftp -P 26609 $SERVER_2H2G <<< "get -r $remoteExtPkgDir/*"
+fi
+
 cd $MDGJX_EXT_ROOT/extensions
 for extName in $(ls); do
   cd $MDGJX_EXT_ROOT/extensions/$extName
