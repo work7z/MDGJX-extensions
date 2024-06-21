@@ -23,6 +23,8 @@ if [[ "$RUN_MODE" = "prod" ]];then
   rm -f $ROOTPKGINFODIR/*
   cd $ROOTPKGINFODIR
   sftp -P 26609 $SERVER_2H2G <<< "get -r $remoteExtPkgDir/*"
+  echo "showing $ROOTPKGINFODIR"
+  ls -ahlrt
 fi
 
 cd $MDGJX_EXT_ROOT/extensions
