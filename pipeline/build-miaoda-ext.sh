@@ -50,12 +50,13 @@ for extName in $(ls); do
     echo "# fullId: $fullId"
     echo "# timestampPkgInfoFile: $timestampPkgInfoFile"
     echo "# md5PkgInfoFile: $md5PkgInfoFile"
-    if [ -f $timestampPkgInfoFile ];then
+    if [ -f "$timestampPkgInfoFile" ];then
       echo -e "\033[35mBUILT: $extName already exist\033[0m"
       continue;
     else 
       echo -e "\033[32mBUILDING: $extName...\033[0m"
     fi
+    exit 9
     date +%s > $timestampPkgInfoFile
     echo "# id: $id"
     if [[ "$id" != "$extName" ]];then 
