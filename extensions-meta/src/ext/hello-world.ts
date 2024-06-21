@@ -19,7 +19,7 @@ export default fn_miaoda_registerConfig({
       prod: "npm run build",
     },
   },
-  menus: "node ./miaoda-get-menu.js",
+  menus: [],
   keywords: [],
   include: ["dist"],
 });

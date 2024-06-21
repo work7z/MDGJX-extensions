@@ -4,6 +4,7 @@ export default fn_miaoda_registerConfig({
   mode: "miaoda",
   name: "CodeGen工具箱",
   id: "nested-codegen-web",
+  disabled: true,
   version: "1.0.0",
   logo: "./assets/icon.png",
   shortDesc: "欢迎老用户关注，CodeGen工具箱原旧功能将继续在这里提供",
@@ -19,7 +20,7 @@ export default fn_miaoda_registerConfig({
       prod: "npm run build",
     },
   },
-  menus: "node ./miaoda-get-menu.js",
+  menus:[],
   keywords: [],
   include: ["dist"],
 });
