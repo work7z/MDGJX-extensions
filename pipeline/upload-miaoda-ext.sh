@@ -16,13 +16,20 @@ fi
 echo "releaseOrTest: $releaseOrTest"
 
 extPkgDir=/home/appuser/extstatic/ext-pkg-$releaseOrTest
-echo "extPkgDir: $extPkgDir"
-ssh $SERVER_2H2G -p 26609 "mkdir -p $extPkgDir"
 extPkgInfoDir=/home/appuser/extstatic/ext-pkginfo-$releaseOrTest
+echo "extPkgDir: $extPkgDir"
 echo "extPkgInfoDir: $extPkgInfoDir"
-ssh $SERVER_2H2G -p 26609 "mkdir -p $extPkgInfoDir"
-sftp -P 26609  $SERVER_2H2G <<< "put $ROOTPKGDIR/* $extPkgDir"
-sftp -P 26609  $SERVER_2H2G <<< "put $ROOTPKGINFODIR/* $extPkgInfoDir"
-sftp -P 26609  $SERVER_2H2G <<< "put $MDGJX_EXT_ROOT/extensions-meta/miaoda-dist-all.json $extPkgInfoDir/miaoda-dist-all-$extGVersion.json"
 
-ssh $SERVER_2H2G -p 26609 "echo $extGVersion > $extPkgInfoDir/ref.txt"
+doScp(){
+  myserver=$1
+  set -e
+  ssh $myserver -p 26609 "mkdir -p $extPkgDir"
+  ssh $myserver -p 26609 "mkdir -p $extPkgInfoDir"
+  sftp -P 26609  $myserver <<< "put $ROOTPKGDIR/* $extPkgDir"
+  sftp -P 26609  $myserver <<< "put $ROOTPKGINFODIR/* $extPkgInfoDir"
+  sftp -P 26609  $myserver <<< "put $MDGJX_EXT_ROOT/extensions-meta/miaoda-dist-all.json $extPkgInfoDir/miaoda-dist-all-$extGVersion.json"
+  ssh $myserver -p 26609 "echo $extGVersion > $extPkgInfoDir/ref.txt"
+}
+
+doScp $SERVER_2H2G
+doScp $SERVER_2H4G
