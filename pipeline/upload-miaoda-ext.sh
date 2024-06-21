@@ -15,7 +15,7 @@ fi
 echo "releaseOrTest: $releaseOrTest"
 
 extPkgDir=/home/appuser/extstatic/ext-pkg-$releaseOrTest
-ssh $SERVER_2H2G -p 26609 "mkdir -p $extRepoDir"
+ssh $SERVER_2H2G -p 26609 "mkdir -p $extPkgDir"
 extPkgInfoDir=/home/appuser/extstatic/ext-pkginfo-$releaseOrTest
 ssh $SERVER_2H2G -p 26609 "mkdir -p $extPkgInfoDir"
 sftp -P 26609  $SERVER_2H2G <<< "put $ROOTPKGDIR/* $extPkgDir"
