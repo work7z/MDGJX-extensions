@@ -15,8 +15,8 @@ if [ -z $releaseOrTest ];then
 fi
 echo "releaseOrTest: $releaseOrTest"
 
-extPkgDir=/home/appuser/extstatic/ext-pkg-$releaseOrTest
-extPkgInfoDir=/home/appuser/extstatic/ext-pkginfo-$releaseOrTest
+extPkgDir=/home/appuser/extstatic/$releaseOrTest-ext-pkg-repo
+extPkgInfoDir=/home/appuser/extstatic/$releaseOrTest-ext-pkg-info
 echo "extPkgDir: $extPkgDir"
 echo "extPkgInfoDir: $extPkgInfoDir"
 
