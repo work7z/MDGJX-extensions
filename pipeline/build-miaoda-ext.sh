@@ -3,11 +3,19 @@ set -e
 cd $(dirname $0)/..
 ROOTDIR=$PWD
 ROOTPKGDIR=$PWD/pkg
+ROOTPKGINFODIR=$PWD/pkginfo
+chmod +x $MDGJX_EXT_ROOT/pipeline/get-ext-version.sh
+extGVersion=`$MDGJX_EXT_ROOT/pipeline/get-ext-version.sh`
+echo "extGVersion: $extGVersion"
+
+if [ -z $releaseOrTest ];then
+  releaseOrTest=test
+fi
+echo "releaseOrTest: $releaseOrTest"
 
 chmod +x $PWD/pipeline/update-miaoda-config.sh
 $PWD/pipeline/update-miaoda-config.sh
 
-ROOTPKGINFODIR=$PWD/pkginfo
 [ -d $ROOTPKGDIR ] && rm -rf $ROOTPKGDIR
 mkdir $ROOTPKGDIR
 [ ! -d $ROOTPKGINFODIR ] && mkdir $ROOTPKGINFODIR
@@ -30,6 +38,7 @@ for extName in $(ls); do
     id=$(cat $miaodaConfigFile | jq -r '.id')
     fullId=$extName@$version
     timestampPkgInfoFile=$ROOTPKGINFODIR/$fullId.timestamp
+    md5PkgInfoFile=$ROOTPKGINFODIR/$fullId.md5
     if [ -f $timestampPkgInfoFile ];then
       echo -e "\033[35mBUILT: $extName already exist\033[0m"
       continue;
@@ -58,6 +67,7 @@ for extName in $(ls); do
     finalTarGz=$ROOTPKGDIR/$fullId.tar.gz
     echo "# finalTarGz: $finalTarGz"
     mv md-dist.tar.gz $finalTarGz
+    md5sum $finalTarGz > $md5PkgInfoFile
   fi
 done
 
