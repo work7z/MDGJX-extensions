@@ -1,0 +1,20 @@
+{
+  "name": "extensions-meta",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf dist && npx tsc && node ./dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^20.14.5",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.17.5",
+    "lodash": "^4.17.21"
+  }
+}

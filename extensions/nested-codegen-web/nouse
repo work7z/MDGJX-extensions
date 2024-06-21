@@ -1,0 +1,14 @@
+{
+    "presets": [
+        "react-app",
+        "es2017"
+    ],
+    "plugins": [
+        [
+          "@babel/plugin-proposal-decorators",
+          {
+            "legacy": true
+          }
+        ]
+    ]
+}

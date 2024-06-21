@@ -1,0 +1,39 @@
+{
+  "name": "miaoda-api",
+  "version": "1.76.0",
+  "description": "Build extensions for MDGJX with React and Node.js.",
+  "author": "MDGJX Technologies Ltd.",
+  "homepage": "https://MDGJX.com",
+  "repository": {
+    "url": "https://github.com/work7z/MDGJX"
+  },
+  "license": "MIT",
+  "types": "types/index.d.ts",
+  "dependencies": {
+    "@types/node": "^20.8.10",
+    "@types/react": "^18.2.27",
+    "react": "18.2.0"
+  },
+  "peerDependencies": {
+    "@types/node": "20.8.10",
+    "@types/react": "18.2.27",
+    "react-devtools": "4.28.4"
+  },
+  "peerDependenciesMeta": {
+    "@types/node": {
+      "optional": true
+    },
+    "@types/react": {
+      "optional": true
+    },
+    "react-devtools": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "postinstall": "node ./bin/ray.js"
+  },
+  "bin": {
+    "ray": "bin/ray"
+  }
+}
