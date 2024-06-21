@@ -19,7 +19,7 @@ mkdir $ROOTPKGDIR
 
 if [[ "$RUN_MODE" = "prod" ]];then
   echo "RUN_MODE: $RUN_MODE"
-  remoteExtPkgDir=/home/appuser/extstatic/release-ext-pkg-repo
+  remoteExtPkgDir=/home/appuser/extstatic/release-ext-pkg-info
   rm -f $ROOTPKGINFODIR/*
   cd $ROOTPKGINFODIR
   sftp -P 26609 $SERVER_2H2G <<< "get -r $remoteExtPkgDir/*"
