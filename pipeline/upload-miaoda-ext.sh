@@ -9,9 +9,6 @@ chmod +x $MDGJX_EXT_ROOT/pipeline/get-ext-version.sh
 extGVersion=`$MDGJX_EXT_ROOT/pipeline/get-ext-version.sh`
 echo "extGVersion: $extGVersion"
 
-chmod +x $PWD/pipeline/update-miaoda-config.sh
-$PWD/pipeline/update-miaoda-config.sh
-
 if [ -z $releaseOrTest ];then
   releaseOrTest=test
 fi
@@ -23,6 +20,6 @@ extPkgInfoDir=/home/appuser/extstatic/ext-pkginfo-$releaseOrTest
 ssh $SERVER_2H2G -p 26609 "mkdir -p $extPkgInfoDir"
 sftp -P 26609  $SERVER_2H2G <<< "put $ROOTPKGDIR/* $extPkgDir"
 sftp -P 26609  $SERVER_2H2G <<< "put $ROOTPKGINFODIR/* $extPkgInfoDir"
+sftp -P 26609  $SERVER_2H2G <<< "put $MDGJX_EXT_ROOT/extensions-meta/miaoda-dist-all.json $extPkgInfoDir/miaoda-dist-all-$extGVersion.json"
 
-ssh $SERVER_2H2G -p 26609 "[ ! -f $extGVersion.txt ] && ls $extPkgInfoDir > $extPkgInfoDir/$extGVersion.txt"
 ssh $SERVER_2H2G -p 26609 "echo $extGVersion > $extPkgInfoDir/ref.txt"
