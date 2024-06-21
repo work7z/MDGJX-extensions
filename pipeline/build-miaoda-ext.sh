@@ -56,7 +56,6 @@ for extName in $(ls); do
     else 
       echo -e "\033[32mBUILDING: $extName...\033[0m"
     fi
-    exit 9
     date +%s > $timestampPkgInfoFile
     echo "# id: $id"
     if [[ "$id" != "$extName" ]];then 
