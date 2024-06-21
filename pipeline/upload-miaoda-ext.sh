@@ -24,5 +24,5 @@ ssh $SERVER_2H2G -p 26609 "mkdir -p $extPkgInfoDir"
 sftp -P 26609  $SERVER_2H2G <<< "put $ROOTPKGDIR/* $extPkgDir"
 sftp -P 26609  $SERVER_2H2G <<< "put $ROOTPKGINFODIR/* $extPkgInfoDir"
 
-ssh $SERVER_2H2G -p 26609 "ls $extPkgInfoDir > $extPkgInfoDir/$extGVersion.txt"
+ssh $SERVER_2H2G -p 26609 "[ ! -f $extGVersion.txt ] && ls $extPkgInfoDir > $extPkgInfoDir/$extGVersion.txt"
 ssh $SERVER_2H2G -p 26609 "echo $extGVersion > $extPkgInfoDir/ref.txt"

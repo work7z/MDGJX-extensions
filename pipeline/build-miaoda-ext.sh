@@ -67,7 +67,10 @@ for extName in $(ls); do
     finalTarGz=$ROOTPKGDIR/$fullId.tar.gz
     echo "# finalTarGz: $finalTarGz"
     mv md-dist.tar.gz $finalTarGz
-    md5sum $finalTarGz > $md5PkgInfoFile
+    (
+      cd $ROOTPKGDIR
+      md5sum $fullId.tar.gz > $md5PkgInfoFile
+    )
   fi
 done
 
