@@ -7,7 +7,11 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "md-dev-setup":"npm i -S -D --verbose --force",
+    "md-dev-run":"npm run dev",
+    "md-prod-setup": "rm -rf node_modules && npm i -S -D --verbose --force",
+    "md-prod-pack": "npm run build && mv dist md-dist"
   },
   "dependencies": {
     "react": "^18.2.0",
