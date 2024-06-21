@@ -8,11 +8,6 @@ chmod +x $MDGJX_EXT_ROOT/pipeline/get-ext-version.sh
 extGVersion=`$MDGJX_EXT_ROOT/pipeline/get-ext-version.sh`
 echo "extGVersion: $extGVersion"
 
-if [ -z $releaseOrTest ];then
-  releaseOrTest=test
-fi
-echo "releaseOrTest: $releaseOrTest"
-
 chmod +x $PWD/pipeline/update-miaoda-config.sh
 $PWD/pipeline/update-miaoda-config.sh
 

@@ -19,8 +19,10 @@ doWork(){
   cp -a $rawMTypesDir/*  $dir
 }
 
-doWork $MDGJX_ROOT/modules/web-server/src/m-types-copy/
-doWork $MDGJX_ROOT/modules/web/src/m-types-copy/
+if [[ "$RUN_MODE" != "prod" ]];then
+  doWork $MDGJX_ROOT/modules/web-server/src/m-types-copy/
+  doWork $MDGJX_ROOT/modules/web/src/m-types-copy/
+fi
 doWork $MDGJX_EXT_ROOT/extensions-meta/src/m-types-copy/
 
 cd $MDGJX_EXT_ROOT/extensions-meta
