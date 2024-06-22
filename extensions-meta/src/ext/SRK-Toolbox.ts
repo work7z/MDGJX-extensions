@@ -6,7 +6,7 @@ export default fn_miaoda_registerConfig({
   mode: "miaoda",
   name: "SRK转换工具集(CyberChef)",
   id: "SRK-Toolbox",
-  version: "1.0.0",
+  version: "1.0.1",
   logo: "./assets/icon.png",
   shortDesc:
     "本插件可以帮助您将文本进行各类处理，包括广泛的编码和解码操作，包括Base64、URL编码、HTML实体编码等。",

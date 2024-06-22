@@ -21,11 +21,9 @@ export type MiaodaBasicConfig = {
     entryLink: string;
   };
   runtime: {
-    // "web-static-embedded": for web app that can be embedded in the main page
-    // "web-static-standalone": for web app that needs to be launched in a new server
     type: "web-static-embedded" | "web-static-standalone";
     standalone?: {
-      ports: number[]; // for some web app, we do need this ports
+      ports: number[]; // attempt to host the static files on these ports
     };
     embedded: {
       folder: string[]; 
