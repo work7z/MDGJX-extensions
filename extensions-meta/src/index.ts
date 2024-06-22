@@ -10,6 +10,7 @@ import fs from "fs";
 import "./ext/hello-world";
 import "./ext/lodash";
 import "./ext/nested-codegen-web";
+import './ext/SRK-Toolbox'
 // EXT LIST END
 
 const extList: {
