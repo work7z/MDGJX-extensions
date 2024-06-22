@@ -11,6 +11,7 @@ import "./ext/hello-world";
 import "./ext/lodash";
 import "./ext/nested-codegen-web";
 import './ext/SRK-Toolbox'
+import './ext/it-tools'
 // EXT LIST END
 
 const extList: {
