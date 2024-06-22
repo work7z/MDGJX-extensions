@@ -28,6 +28,7 @@ doScp(){
   sftp -P 26609  $myserver <<< "put $ROOTPKGDIR/* $extPkgDir"
   sftp -P 26609  $myserver <<< "put $ROOTPKGINFODIR/* $extPkgInfoDir"
   sftp -P 26609  $myserver <<< "put $MDGJX_EXT_ROOT/extensions-meta/miaoda-dist-all.json $extPkgInfoDir/miaoda-dist-all-$extGVersion.json"
+  ssh $myserver -p 26609 "cd $extPkgDir && ls *.tar.gz | xargs -I {} tar -xzvf {}"
   ssh $myserver -p 26609 "echo $extGVersion > $extPkgInfoDir/ref.txt"
   ssh $myserver -p 26609 "date +%s > /home/appuser/extstatic/timestamp.txt"
 }

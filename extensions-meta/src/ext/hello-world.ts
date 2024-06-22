@@ -2,6 +2,7 @@ import { fn_miaoda_registerConfig } from "../m-types-copy/base/m-types-main";
 
 export default fn_miaoda_registerConfig({
   name: "测试模板 - Hello World",
+  disabled: true,
   id: "hello-world",
   version: "1.0.3",
   logo: "./assets/icon.png",
