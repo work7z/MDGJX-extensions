@@ -25,13 +25,13 @@ export type MiaodaBasicConfig = {
     standalone?: {
       ports: number[]; // attempt to host the static files on these ports
     };
-    embedded: {
-      folder: string[]; 
-    }
+    embedded?: {
+      folder: string[];
+    };
   };
   keywords?: string[];
   include: string[];
-  menus: [];
+  menus: MiaodaDyanmicMenuItem[];
 };
 
 export const REGISTER_CONFIG_OBJ: MiaodaBasicConfig[] = [];

@@ -1,9 +1,8 @@
 import { fn_miaoda_registerConfig } from "../m-types-copy/base/m-types-main";
 
-// Note: 目前基于最后一次成功commit进行编译，commit-id: 0cd3d77 
+// Note: 目前基于最后一次成功commit进行编译，commit-id: 0cd3d77
 
 export default fn_miaoda_registerConfig({
-  mode: "miaoda",
   name: "SRK转换工具集(CyberChef)",
   id: "SRK-Toolbox",
   version: "1.0.1",
@@ -17,6 +16,12 @@ export default fn_miaoda_registerConfig({
     entryLink: "http://localhost:40001",
   },
   menus: [],
+  runtime: {
+    type: "web-static-standalone",
+    standalone: {
+      ports: [62001],
+    },
+  },
   keywords: [],
   include: ["dist"],
 });
