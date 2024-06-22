@@ -20,6 +20,7 @@ export default fn_miaoda_registerConfig({
     type: "web-static-standalone",
     standalone: {
       ports: [62001],
+      onlineURL: "https://cyberchef.mdgjx.com",
     },
   },
   keywords: [],

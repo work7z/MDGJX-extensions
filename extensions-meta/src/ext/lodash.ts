@@ -15,6 +15,7 @@ export default fn_miaoda_registerConfig({
     type: "web-static-standalone",
     standalone: {
       ports: [62003],
+      onlineURL: "https://ext-lodash.mdgjx.com",
     },
   },
   menus: [],

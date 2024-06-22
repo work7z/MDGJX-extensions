@@ -12,9 +12,9 @@ export default fn_miaoda_registerConfig({
   },
   runtime: {
     type: "web-static-standalone",
-    standalone: {
-      ports: [62003],
-    },
+    embedded: {
+      staticDirs: ['.'],
+    }
   },
   menus: [],
   keywords: [],

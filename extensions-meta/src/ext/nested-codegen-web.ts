@@ -14,7 +14,8 @@ export default fn_miaoda_registerConfig({
   runtime:{
     type: 'web-static-standalone',
     standalone:{
-      ports: [62002]
+      ports: [62002],
+      onlineURL: "https://ext-nested-codegen-web.mdgjx.com"
     }
   },
   menus:[],
