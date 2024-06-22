@@ -182,6 +182,10 @@
     "zlibjs": "^0.3.1"
   },
   "scripts": {
+    "md-dev-setup": "npm ci",
+    "md-dev-run": "npm run dev",
+    "md-prod-setup": "rm -rf node_modules && npm ci",
+    "md-prod-pack": "npm run build && rm ./build/prod/*.zip && mv build/prod md-dist",
     "start": "npx grunt dev",
     "build": "npx grunt prod",
     "node": "npx grunt node",
