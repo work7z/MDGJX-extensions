@@ -62,6 +62,7 @@ for extName in $(ls); do
     fi
     echo -e "\033[32mCompiling $fullId...\033[0m"
     # TODO: compile extensions, the final output should like hello-world@1.0.0.tar.gz and folders hello-world@1.0.0
+    mv md-dist $fullId
     mdDistDir=$fullId
     rm -rf $mdDistDir
     echo "# pwd: $PWD"
@@ -72,7 +73,7 @@ for extName in $(ls); do
     if [ ! -d $mdDistDir ];then
       echo -e "\033[33m$mdDistDir expected exist yet not\033[0m"
       exit 99
-    fi   
+    fi 
     cp ./miaoda-dist.json $mdDistDir
     tar -czvf $fullId.tar.gz $mdDistDir
     finalTarGz=$ROOTPKGDIR/$fullId.tar.gz
