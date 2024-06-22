@@ -44,10 +44,10 @@ for extName in $(ls); do
     id=$(cat $miaodaConfigFile | jq -r '.id')
     fullId=$extName@$version
     timestampPkgInfoFile=$ROOTPKGINFODIR/$fullId.timestamp
-    md5PkgInfoFile=$ROOTPKGINFODIR/$fullId.md5
+    shasum256PkgInfoFile=$ROOTPKGINFODIR/$fullId.sha256
     echo "# fullId: $fullId"
     echo "# timestampPkgInfoFile: $timestampPkgInfoFile"
-    echo "# md5PkgInfoFile: $md5PkgInfoFile"
+    echo "# shasum256PkgInfoFile: $shasum256PkgInfoFile"
     if [ -f "$timestampPkgInfoFile" ];then
       echo -e "\033[35mBUILT: $fullId already exist\033[0m"
       continue;
@@ -82,7 +82,7 @@ for extName in $(ls); do
     mv $fullId.tar.gz $finalTarGz
     (
       cd $ROOTPKGDIR
-      md5sum $fullId.tar.gz > $md5PkgInfoFile
+      shasum -a 256 $fullId.tar.gz > $shasum256PkgInfoFile
     )
   fi
 done
