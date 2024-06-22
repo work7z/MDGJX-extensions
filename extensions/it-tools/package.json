@@ -33,7 +33,11 @@
     "lint": "eslint src --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --ignore-path .gitignore",
     "script:create:tool": "node scripts/create-tool.mjs",
     "script:create:ui": "hygen generator ui-component",
-    "release": "node ./scripts/release.mjs"
+    "release": "node ./scripts/release.mjs",
+    "md-dev-setup": "npm i -S -D --force --verbose",
+    "md-dev-run": "npm run dev",
+    "md-prod-setup": "rm -rf node_modules && npm i -S -D --verbose --force",
+    "md-prod-pack": "npm run build && mv dist md-dist"
   },
   "dependencies": {
     "@it-tools/bip39": "^0.0.4",
