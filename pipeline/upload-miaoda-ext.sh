@@ -25,6 +25,7 @@ echo "releaseOrTest: $releaseOrTest"
 
 extPkgDir=/home/appuser/extstatic/ext-root/pkg-repo
 extPkgInfoDir=/home/appuser/extstatic/ext-root/pkg-info-$releaseOrTest
+extPkgExtractDir=/home/appuser/extstatic/ext-root/pkg-extract
 echo "extPkgDir: $extPkgDir"
 echo "extPkgInfoDir: $extPkgInfoDir"
 
@@ -33,11 +34,21 @@ doScp(){
   set -e
   ssh $myserver -p 26609 "mkdir -p $extPkgDir"
   ssh $myserver -p 26609 "mkdir -p $extPkgInfoDir"
+  # upload files
   sftp -P 26609  $myserver <<< "put $ROOTPKGDIR/* $extPkgDir"
   sftp -P 26609  $myserver <<< "put $ROOTPKGINFODIR/* $extPkgInfoDir"
   sftp -P 26609  $myserver <<< "put $MDGJX_EXT_ROOT/extensions-meta/miaoda-dist-all.json $extPkgInfoDir/miaoda-dist-all-$extGVersion.json"
   ssh $myserver -p 26609 "date +%s > /home/appuser/extstatic/ext-root/timestamp.txt"
+  ssh $myserver -p 26609 "mkdir -p $extPkgExtractDir"
+  # extract it
+  ssh $myserver -p 26609 "rm -rf $extPkgInfoDir/miaoda-extract.sh"
+  sftp -P 26609  $myserver <<< "put $MDGJX_EXT_ROOT/extensions-meta/miaoda-extract.sh $extPkgInfoDir/miaoda-extract.sh"
+  ssh $myserver -p 26609 "chmod +x $extPkgInfoDir/miaoda-extract.sh"
+  ssh $myserver -p 26609 "$extPkgInfoDir/miaoda-extract.sh $extPkgInfoDir $extPkgDir $extPkgExtractDir"
+  # final commit
   ssh $myserver -p 26609 "echo $extGVersion > $extPkgInfoDir/ref.txt"
+
+  # upload to cos
   ssh $myserver -p 26609 "cd /home/appuser/extstatic && ~/bin/coscli-linux cp ./ext-root/ cos://$BNAME/ext-root/ -r" 
 }
 
