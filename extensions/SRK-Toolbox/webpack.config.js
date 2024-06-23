@@ -36,7 +36,7 @@ const banner = `/**
 
 module.exports = {
     output: {
-        publicPath: "./",
+        publicPath: "/srk",
         globalObject: "this",
         assetModuleFilename: "assets/[hash][ext][query]"
     },

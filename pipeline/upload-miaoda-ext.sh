@@ -6,6 +6,7 @@ ROOTDIR=$PWD
 ROOTPKGDIR=$PWD/pkg
 ROOTPKGINFODIR=$PWD/pkginfo
 
+
 chmod +x $MDGJX_EXT_ROOT/pipeline/get-ext-version.sh
 extGVersion=`$MDGJX_EXT_ROOT/pipeline/get-ext-version.sh`
 echo "extGVersion: $extGVersion"
@@ -39,6 +40,8 @@ doScp(){
   sftp -P 26609  $myserver <<< "put $ROOTPKGINFODIR/* $extPkgInfoDir"
   sftp -P 26609  $myserver <<< "put $MDGJX_EXT_ROOT/extensions-meta/miaoda-dist-all.json $extPkgInfoDir/miaoda-dist-all-$extGVersion.json"
   ssh $myserver -p 26609 "date +%s > /home/appuser/extstatic/ext-root/timestamp.txt"
+  ssh $myserver -p 26609 "date +%s > $extPkgInfoDir/timestamp.txt"
+  ssh $myserver -p 26609 "echo $TAGNAME > $extPkgInfoDir/timestamp.txt"
   ssh $myserver -p 26609 "mkdir -p $extPkgExtractDir"
   # extract it
   ssh $myserver -p 26609 "rm -rf $extPkgInfoDir/miaoda-extract.sh"
