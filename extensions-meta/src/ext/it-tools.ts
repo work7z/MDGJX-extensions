@@ -9,10 +9,10 @@ export default fn_miaoda_registerConfig({
   logo: "./assets/icon.png",
   shortDesc:"本插件提供了丰富的常用工具，例如通用格式转换、web工具、加密解密、编码解码、文本处理等，更重要的是，它有良好的中文支持，让您开发代码起来如虎添翼！",
   homepage: ["https://github.com/work7z/MDGJX"],
-  authors: ["Raka-loah"],
+  authors: ["it-tools"],
   description: "",
   development: {
-    entryLink: "http://localhost:40001",
+    entryLink: "http://localhost:21753",
   },
   menus: [],
   runtime: {
