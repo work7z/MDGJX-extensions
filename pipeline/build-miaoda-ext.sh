@@ -20,7 +20,7 @@ if [[ "$RUN_MODE" = "prod" ]];then
   remoteExtPkgDir=/home/appuser/extstatic/ext-root/pkg-info-release
   rm -f $ROOTPKGINFODIR/*
   cd $ROOTPKGINFODIR
-  sftp -P 26609 $SERVER_2H2G <<< "get -r $remoteExtPkgDir/*"
+  sftp -P 26609 $SERVER_2H4G <<< "get -r $remoteExtPkgDir/*"
   echo "showing $ROOTPKGINFODIR"
   ls -ahlrt
 fi
