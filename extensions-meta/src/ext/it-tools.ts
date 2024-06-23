@@ -12,7 +12,7 @@ export default fn_miaoda_registerConfig({
   authors: ["it-tools"],
   description: "",
   development: {
-    entryLink: "http://localhost:21753",
+    entryLink: "http://localhost:25173/xtools",
   },
   menus: [],
   runtime: {
