@@ -6,6 +6,7 @@ export default fn_miaoda_registerConfig({
   name: "SRK转换工具集(CyberChef)",
   id: "SRK-Toolbox",
   version: "1.0.7",
+  iconInStr: "BrandSupabase",
   logo: "./assets/icon.png",
   shortDesc:
     "本插件可以帮助您轻松处理各类格式转换，包括广泛的编码和解码操作，包括Base64、URL编码、HTML实体编码等。",
@@ -22,11 +23,11 @@ export default fn_miaoda_registerConfig({
     //   ports: [62001],
     //   onlineURL: "https://cyberchef.mdgjx.com",
     // },
-    type: 'web-static-embedded',
+    type: "web-static-embedded",
     embedded: {
-      staticDirs: ['.'],
-      baseUrl: '/srk'
-    }
+      staticDirs: ["."],
+      baseUrl: "/ext-view/srk",
+    },
   },
   keywords: [],
   include: ["dist"],
