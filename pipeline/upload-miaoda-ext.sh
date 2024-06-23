@@ -15,8 +15,16 @@ if [ -z $releaseOrTest ];then
 fi
 echo "releaseOrTest: $releaseOrTest"
 
-extPkgDir=/home/appuser/extstatic/ext-root/$releaseOrTest/pkg-repo
-extPkgInfoDir=/home/appuser/extstatic/ext-root/$releaseOrTest/pkg-info
+
+# pkg-repo会存储插件的tar.gz
+# pkg-info-release 和 pkg-info-test 会存储插件的具体列表和信息
+# 基本来说，测试环境和正式环境的pkg都是统一的，区别就是pkg-info的ref.txt和timestamp会有不同
+# 假如说我们要发布test@v1.0.0，但是它在测试环境挂了，这时候我们就不能用v1.0.0，而应该用v1.0.1继续上传
+
+# TODO: 后面可以写个脚本，定期清除一下云端的一些过期的pkg和pkg-info
+
+extPkgDir=/home/appuser/extstatic/ext-root/pkg-repo
+extPkgInfoDir=/home/appuser/extstatic/ext-root/pkg-info-$releaseOrTest
 echo "extPkgDir: $extPkgDir"
 echo "extPkgInfoDir: $extPkgInfoDir"
 
@@ -28,11 +36,11 @@ doScp(){
   sftp -P 26609  $myserver <<< "put $ROOTPKGDIR/* $extPkgDir"
   sftp -P 26609  $myserver <<< "put $ROOTPKGINFODIR/* $extPkgInfoDir"
   sftp -P 26609  $myserver <<< "put $MDGJX_EXT_ROOT/extensions-meta/miaoda-dist-all.json $extPkgInfoDir/miaoda-dist-all-$extGVersion.json"
-  ssh $myserver -p 26609 "cd $extPkgDir && ls *.tar.gz | xargs -I {} tar -xzvf {}"
   ssh $myserver -p 26609 "date +%s > /home/appuser/extstatic/ext-root/timestamp.txt"
   ssh $myserver -p 26609 "echo $extGVersion > $extPkgInfoDir/ref.txt"
-  ssh $myserver -p 26609 "cd /home/appuser/extstatic && ~/bin/coscli-linux cp ./ext-root/ cos://$BNAME/ext-root/ -r"  
+  ssh $myserver -p 26609 "cd /home/appuser/extstatic && ~/bin/coscli-linux cp ./ext-root/ cos://$BNAME/ext-root/ -r" 
 }
 
 # doScp $SERVER_2H2G 
 doScp $SERVER_2H4G
+
