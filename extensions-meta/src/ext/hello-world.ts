@@ -1,4 +1,4 @@
-import { fn_miaoda_registerConfig } from "../m-types-copy/base/m-types-main";
+import { EXT_VIEW_PREFIX, fn_miaoda_registerConfig } from "../m-types-copy/base/m-types-main";
 
 export default fn_miaoda_registerConfig({
   name: "测试模板 - Hello World",
@@ -15,6 +15,7 @@ export default fn_miaoda_registerConfig({
     type: "web-static-standalone",
     embedded: {
       staticDirs: ['.'],
+      baseUrl: EXT_VIEW_PREFIX+'/hello-world'
     }
   },
   menus: [],

@@ -31,7 +31,8 @@ export default fn_miaoda_registerConfig({
             id: xx.id,
             name: xx.name,
             icon: xx.icon,
-          };
+
+          } ;
         }),
       };
     }) || [],
