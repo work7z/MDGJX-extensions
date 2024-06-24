@@ -43,10 +43,10 @@ const compareMatch = computed(() => compareSync(compareString.value, compareHash
   <c-card title="比较字符串和哈希值">
     <n-form label-width="120">
       <n-form-item label="字符串：" label-placement="left">
-        <c-input-text v-model:value="compareString" placeholder="Your string to compare..." raw-text />
+        <c-input-text v-model:value="compareString" placeholder="进行比较的字符串..." raw-text />
       </n-form-item>
       <n-form-item label="哈希值：" label-placement="left">
-        <c-input-text v-model:value="compareHash" placeholder="Your hash to compare..." raw-text />
+        <c-input-text v-model:value="compareHash" placeholder="进行比较的哈希值..." raw-text />
       </n-form-item>
       <n-form-item label="结果：" label-placement="left" :show-feedback="false">
         <div class="compare-result" :class="{ positive: compareMatch }">
