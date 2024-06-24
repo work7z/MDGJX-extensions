@@ -16,7 +16,6 @@ if [ -z $releaseOrTest ];then
 fi
 echo "releaseOrTest: $releaseOrTest"
 
-
 # pkg-repo会存储插件的tar.gz
 # pkg-info-release 和 pkg-info-test 会存储插件的具体列表和信息
 # 基本来说，测试环境和正式环境的pkg都是统一的，区别就是pkg-info的ref.txt和timestamp会有不同
@@ -26,7 +25,7 @@ echo "releaseOrTest: $releaseOrTest"
 
 extPkgDir=/home/appuser/extstatic/ext-root/pkg-repo
 extPkgInfoDir=/home/appuser/extstatic/ext-root/pkg-info-$releaseOrTest
-extPkgExtractDir=/home/appuser/extstatic/ext-root/pkg-extract
+extPkgExtractDir=/home/appuser/extstatic/ext-root/pkg-extract-$releaseOrTest 
 echo "extPkgDir: $extPkgDir"
 echo "extPkgInfoDir: $extPkgInfoDir"
 
