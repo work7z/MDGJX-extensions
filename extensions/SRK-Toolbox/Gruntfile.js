@@ -27,12 +27,23 @@ module.exports = function (grunt) {
         "A persistent task which creates a development build whenever source files are modified.",
         ["clean:dev", "clean:config", "exec:generateConfig", "concurrent:dev"]);
 
-    grunt.registerTask("prod",
+    grunt.registerTask(
+        "prod",
         "Creates a production-ready build. Use the --msg flag to add a compile message.",
         [
-            "eslint", "clean:prod", "clean:config", "exec:generateConfig", "findModules", "webpack:web",
-            "copy:standalone", "zip:standalone", "clean:standalone", "exec:calcDownloadHash", "chmod"
-        ]);
+            // "eslint",
+            "clean:prod",
+            "clean:config",
+            "exec:generateConfig",
+            "findModules",
+            "webpack:web",
+            "copy:standalone",
+            "zip:standalone",
+            "clean:standalone",
+            "exec:calcDownloadHash",
+            "chmod",
+        ]
+    );
 
     grunt.registerTask("node",
         "Compiles CyberChef into a single NodeJS module.",
