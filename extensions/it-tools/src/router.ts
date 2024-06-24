@@ -19,7 +19,7 @@ const toolsRedirectRoutes = tools
   );
 
 const router = createRouter({
-  history: createWebHistory('/xtools'),
+  history: createWebHistory('/ext-view/xtools'),
   routes: [
     {
       path: '/',

@@ -6,7 +6,7 @@ import { toolsNavInfo } from "./it-tools/toolNavInfo";
 export default fn_miaoda_registerConfig({
   name: "it-tools中文版",
   id: "it-tools",
-  version: "1.0.4",
+  version: "1.0.5",
   logo: "./assets/icon.png",
   iconInStr: 'Briefcase',
   shortDesc:
