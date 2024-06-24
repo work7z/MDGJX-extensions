@@ -15,7 +15,7 @@ export default fn_miaoda_registerConfig({
   authors: ["it-tools"],
   description: "",
   development: {
-    entryLink: "http://localhost:25173/xtools",
+    entryLink: "http://localhost:25173/ext-view/xtools",
   },
   menus: [
     ...(toolsNavInfo.map(eachToolNavInfo => {
@@ -32,7 +32,7 @@ export default fn_miaoda_registerConfig({
             name: eachSubTool.name,
             keywords: eachSubTool.keywords,
             description: eachSubTool.description,
-          }
+          } satisfies SystemSubModuleItem
         }),
       } satisfies SystemSubModuleItem
     })
