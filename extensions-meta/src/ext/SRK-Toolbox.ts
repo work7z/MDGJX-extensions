@@ -5,7 +5,7 @@ import { fn_miaoda_registerConfig } from "../m-types-copy/base/m-types-main";
 export default fn_miaoda_registerConfig({
   name: "SRK转换工具集(CyberChef)",
   id: "SRK-Toolbox",
-  version: "1.0.7",
+  version: "1.0.8",
   iconInStr: "BrandSupabase",
   logo: "./assets/icon.png",
   shortDesc:
