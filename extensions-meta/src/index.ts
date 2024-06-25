@@ -10,6 +10,8 @@ import fs from "fs";
 import "./ext/hello-world";
 import "./ext/lodash";
 import "./ext/nested-codegen-web";
+import './ext/SRK-Toolbox'
+import './ext/it-tools'
 // EXT LIST END
 
 const extList: {
@@ -28,6 +30,7 @@ _.forEach(extList, (x, d, n) => {
     throw new Error("id " + x.id + " is duplicated");
   }
   prevIdObj[x.id] = true;
+  x.post_fullId = `${x.id}@${x.version}`
   console.log("processing " + x.id);
   const currentCwd = x.cwd || path.join(MDGJX_EXT_ROOT, "extensions", x.id);
   const finalMiaodaDistFile = path.join(currentCwd, "miaoda-dist.json");

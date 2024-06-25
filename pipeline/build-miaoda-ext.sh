@@ -14,6 +14,17 @@ $PWD/pipeline/update-miaoda-config.sh
 [ -d $ROOTPKGDIR ] && rm -rf $ROOTPKGDIR
 mkdir $ROOTPKGDIR
 [ ! -d $ROOTPKGINFODIR ] && mkdir $ROOTPKGINFODIR
+
+if [[ "$RUN_MODE" = "prod" ]];then
+  echo "RUN_MODE: $RUN_MODE"
+  remoteExtPkgDir=/home/appuser/extstatic/ext-root/pkg-info-release
+  rm -f $ROOTPKGINFODIR/*
+  cd $ROOTPKGINFODIR
+  sftp -P 26609 $SERVER_2H4G <<< "get -r $remoteExtPkgDir/*"
+  echo "showing $ROOTPKGINFODIR"
+  ls -ahlrt
+fi
+
 cd $MDGJX_EXT_ROOT/extensions
 for extName in $(ls); do
   cd $MDGJX_EXT_ROOT/extensions/$extName
@@ -33,38 +44,45 @@ for extName in $(ls); do
     id=$(cat $miaodaConfigFile | jq -r '.id')
     fullId=$extName@$version
     timestampPkgInfoFile=$ROOTPKGINFODIR/$fullId.timestamp
-    md5PkgInfoFile=$ROOTPKGINFODIR/$fullId.md5
-    if [ -f $timestampPkgInfoFile ];then
-      echo -e "\033[35mBUILT: $extName already exist\033[0m"
+    shasum256PkgInfoFile=$ROOTPKGINFODIR/$fullId.sha256
+    echo "# fullId: $fullId"
+    echo "# timestampPkgInfoFile: $timestampPkgInfoFile"
+    echo "# shasum256PkgInfoFile: $shasum256PkgInfoFile"
+    if [ -f "$timestampPkgInfoFile" ];then
+      echo -e "\033[35mBUILT: $fullId already exist\033[0m"
       continue;
+    else 
+      echo -e "\033[32mBUILDING: $fullId...\033[0m"
     fi
     date +%s > $timestampPkgInfoFile
     echo "# id: $id"
     if [[ "$id" != "$extName" ]];then 
-      echo -e "\033[33mSKIP $extName since id not match\033[0m"
+      echo -e "\033[33mSKIP $fullId since id not match\033[0m"
       exit 97
     fi
-    echo -e "\033[32mCompiling $extName@$version...\033[0m"
+    echo -e "\033[32mCompiling $fullId...\033[0m"
     # TODO: compile extensions, the final output should like hello-world@1.0.0.tar.gz and folders hello-world@1.0.0
-    mdDistDir=md-dist
-    rm -rf $mdDistDir
+    mdDistDir=$fullId
+    [ -d md-dist ] && rm -rf md-dist
+    [ -d $fullId ] && rm -rf $fullId
     echo "# pwd: $PWD"
     echo "# run md-setup-prod"
     npm run md-prod-setup
     echo "# run md-pack-prod"
     npm run md-prod-pack
+    mv md-dist $fullId
     if [ ! -d $mdDistDir ];then
       echo -e "\033[33m$mdDistDir expected exist yet not\033[0m"
       exit 99
-    fi   
+    fi 
     cp ./miaoda-dist.json $mdDistDir
-    tar -czvf md-dist.tar.gz $mdDistDir
+    tar -czvf $fullId.tar.gz $mdDistDir
     finalTarGz=$ROOTPKGDIR/$fullId.tar.gz
     echo "# finalTarGz: $finalTarGz"
-    mv md-dist.tar.gz $finalTarGz
+    mv $fullId.tar.gz $finalTarGz
     (
       cd $ROOTPKGDIR
-      md5sum $fullId.tar.gz > $md5PkgInfoFile
+      shasum -a 256 $fullId.tar.gz > $shasum256PkgInfoFile
     )
   fi
 done

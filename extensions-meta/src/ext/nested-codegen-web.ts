@@ -1,7 +1,6 @@
 import { fn_miaoda_registerConfig } from "../m-types-copy/base/m-types-main";
 
 export default fn_miaoda_registerConfig({
-  mode: "miaoda",
   name: "CodeGen工具箱",
   id: "nested-codegen-web",
   disabled: true,
@@ -11,7 +10,13 @@ export default fn_miaoda_registerConfig({
   description: "# 这是基本的描述内容，后续可以通过@REAEDME的方式进行额外扩展",
   development: {
     entryLink: "http://localhost:40001",
-
+  },
+  runtime:{
+    type: 'web-static-standalone',
+    standalone:{
+      ports: [62002],
+      onlineURL: "https://ext-nested-codegen-web.mdgjx.com"
+    }
   },
   menus:[],
   keywords: [],
