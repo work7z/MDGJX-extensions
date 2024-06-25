@@ -6,7 +6,7 @@ const baseURL = "/ext-view/srk";
 export default fn_miaoda_registerConfig({
   name: "CyberChef工具集",
   id: "SRK-Toolbox",
-  version: "1.0.8",
+  version: "1.0.9",
   iconInStr: "BrandSupabase",
   logo: "./assets/icon.png",
   shortDesc:
@@ -22,15 +22,16 @@ export default fn_miaoda_registerConfig({
       id: "srk",
       iconInStr: "BrandSupabase",
       belongTo: "tools",
-      name: "CyberChef工具集",
+      name: "CyberChef基础",
       children: [
         {
           id: "main",
           iconInStr: "BrandSupabase",
           disableFooter: true,
-          name: "流程首页",
-          moduleItemtURL: `${baseURL}/${'main'}`,
-          keywords: ["CyberChef", "SRK", "转换", "转换工具流", "工具"],
+          name: "流程入口",
+          moduleItemtURL: `${baseURL}/`,
+          keywords: ["CyberChef", "SRK", "转换", "转换工具流", "工具","基础"],
+          description: `本功能提供CyberChef基础转换的流程入口。`
         },
       ],
     },

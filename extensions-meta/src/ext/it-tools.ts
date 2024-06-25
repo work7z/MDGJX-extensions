@@ -33,7 +33,7 @@ export default fn_miaoda_registerConfig({
             iconInStr: eachSubTool?.icon?.name || 'AppWindows',
             disableFooter: true,
             name: eachSubTool.name,
-            moduleItemtURL: `${baseURL}`,
+            moduleItemtURL: `${baseURL}/${idval}`,
             keywords: eachSubTool.keywords,
             description: eachSubTool.description,
           } satisfies SystemSubModuleItem

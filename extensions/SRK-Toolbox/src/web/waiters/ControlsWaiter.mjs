@@ -60,7 +60,7 @@ class ControlsWaiter {
      */
     bakeClick() {
         const btnBake = document.getElementById("bake");
-        if (btnBake.textContent.indexOf("执行转换！") > 0) {
+        if (btnBake.textContent.indexOf("开始转换") > 0) {
             this.app.manager.input.bakeAll();
         } else if (btnBake.textContent.indexOf("取消") > 0) {
             this.manager.worker.cancelBake(false, true);
@@ -415,7 +415,7 @@ ${navigator.userAgent}
                 break;
             default:
                 bakeButton.style.background = "";
-                btnText.innerText = "执行转换！";
+                btnText.innerText = "开始转换";
                 bakeButton.classList.remove("btn-danger");
                 bakeButton.classList.remove("btn-warning");
                 bakeButton.classList.add("btn-success");

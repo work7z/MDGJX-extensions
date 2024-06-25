@@ -46,26 +46,16 @@
             // Define loading messages
             var loadingMsgs = [
                 "正在证明 P = NP...",
-                "正在计算 6 x 9...",
-                "正在挖比特币...",
                 "正在计算1除以0...",
-                "正在初始化Skynet...",
-                "[已重置]",
-                "正在下载更多内存...",
                 "正在给0和1排序...",
-                "正在访问神经网格...",
-                "正在导入机器学习功能...",
-                "正在给Alice和Bob发一次性密码本...",
-                "正在挖比特币现金...",
-                "正在生成随机字符串以尝试退出vim...",
-                "for i in range(additional): Pylon()",
-                "(激化你的强迫症...",
-                "正在把emacs和vim符号链接到ed...",
-                "正在训练分支预测...",
+                "正在东山口等最后一班公交车...",
+                "正在晚八点后寻找打折的沃尔玛食品作为晚餐...",
+                "正在享受Joe Pass的吉他独奏...",
+                "正在广外白云山下听着歌悠然散步中..."
+                "正在怀念2018年的夏天中..."
                 "正在对缓存命中计时...",
                 "正在猜你要执行什么操作...",
                 "正在添加使用了大型语言模型的错觉...",
-                "解压恶意软件中（吓你的）..."
             ];
 
             // Shuffle array using Durstenfeld algorithm
@@ -841,21 +831,24 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content" data-help-proxy="a[data-target='#download-modal']">
                     <div class="modal-header">
-                        <h5 class="modal-title">下载SRK Toolbox</h5>
+                        <h5 class="modal-title">了解本工具箱插件</h5>
                     </div>
                     <div class="modal-body">
+                        <!-- <p>
+                            您正在使用秒达工具箱自定义的SRK Toolbox，无需担心，一切
+                        </p> -->
                         <p>
-                            SRK Toolbox整个运行在本地浏览器中，没有服务器端组件，这意味着你的输入数据、你的操作流程设定不会被发送出去，无论你使用在线版还是离线版，只要是官方开源原版，都会是这样。
+                            本插件整个都运行在本地浏览器中，没有服务器端组件，这意味着你的输入数据、你的操作流程设定不会被发送出去，无论你使用在线版还是离线版，只要是官方开源原版，都会是这样。
                         </p>
                         <p>
                             有三个操作会产生网络请求，“在地图上显示”会从wikimedia.org下载地图图片，“DNS over HTTPS”操作会向服务器发起DNS请求，以及“HTTP请求”操作会发起HTTP请求。你可以用浏览器的开发者工具（F12）的网络选项卡来监控网络请求情况。
                         </p>
-                        <p>
+                        <!-- <p>
                             如果你想下载一份离线版用于没网可上的场景，你可以在下方下载一份包含整个程序的ZIP压缩包。可以直接在本地打开使用，或者部署到Web服务器，无需额外设置。
-                        </p>
-                        <p>
+                        </p> -->
+                        <!-- <p>
                             注意：离线版没有自动更新功能，新版需要自行手动更新。
-                        </p>
+                        </p> -->
 
                         <h6>SRK Toolbox v<%= htmlWebpackPlugin.options.version %></h6>
                         <ul>
@@ -865,7 +858,7 @@
                             <li>Released under the Apache Licence, Version 2.0</li>
                             <li>SHA256 hash: DOWNLOAD_HASH_PLACEHOLDER</li>
                         </ul>
-                        <a href="SRK_Toolbox_v<%= htmlWebpackPlugin.options.version %>.zip" download class="btn btn-outline-primary">下载离线版ZIP压缩包</a>
+                        <!-- <a href="SRK_Toolbox_v<%= htmlWebpackPlugin.options.version %>.zip" download class="btn btn-outline-primary">下载离线版ZIP压缩包</a> -->
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
