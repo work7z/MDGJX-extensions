@@ -3,7 +3,7 @@ import { fn_miaoda_registerConfig } from "../m-types-copy/base/m-types-main";
 // Note: 目前基于最后一次成功commit进行编译，commit-id: 0cd3d77
 
 export default fn_miaoda_registerConfig({
-  name: "SRK转换工具集(CyberChef)",
+  name: "CyberChef工具集",
   id: "SRK-Toolbox",
   version: "1.0.8",
   iconInStr: "BrandSupabase",
@@ -16,7 +16,23 @@ export default fn_miaoda_registerConfig({
   development: {
     entryLink: "http://localhost:40001",
   },
-  menus: [],
+  menus: [
+    {
+      id: "srk",
+      iconInStr: "BrandSupabase",
+      belongTo: "tools",
+      name: "CyberChef工具集",
+      children: [
+        {
+          id: "main",
+          iconInStr: "BrandSupabase",
+          disableFooter: true,
+          name: "流程首页",
+          keywords: ["CyberChef", "SRK", "转换", "转换工具流", "工具"],
+        },
+      ],
+    },
+  ],
   runtime: {
     // type: "web-static-standalone",
     // standalone: {
