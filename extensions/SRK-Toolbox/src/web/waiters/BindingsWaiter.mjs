@@ -217,7 +217,7 @@ class BindingsWaiter {
             <td>Ctrl+${modMac}+b</td>
         </tr>
         <tr>
-            <td>执行流程/开始转换</td>
+            <td>执行流程/执行转换</td>
             <td>Ctrl+${modWinLin}+Space</td>
             <td>Ctrl+${modMac}+Space</td>
         </tr>

@@ -683,7 +683,7 @@ class App {
         //     timeSinceCompile.substr(0, 1).toUpperCase() +
         //     timeSinceCompile.substr(1)
         // }之前
-        let compileInfo = `<a href='https://github.com/work7z/MDGJX'>查看本版本源代码</a>`;
+        let compileInfo = `<a href='https://github.com/work7z/MDGJX'>秒达工具箱 - CyberChef中文版</a>`;
 
         if (window.compileMessage !== "") {
             compileInfo += " - " + window.compileMessage;
