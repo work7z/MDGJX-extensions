@@ -1,6 +1,7 @@
 import { fn_miaoda_registerConfig } from "../m-types-copy/base/m-types-main";
 
 // Note: 目前基于最后一次成功commit进行编译，commit-id: 0cd3d77
+const baseURL = "/ext-view/srk";
 
 export default fn_miaoda_registerConfig({
   name: "CyberChef工具集",
@@ -28,6 +29,7 @@ export default fn_miaoda_registerConfig({
           iconInStr: "BrandSupabase",
           disableFooter: true,
           name: "流程首页",
+          moduleItemtURL: `${baseURL}/${'main'}`,
           keywords: ["CyberChef", "SRK", "转换", "转换工具流", "工具"],
         },
       ],
@@ -42,7 +44,7 @@ export default fn_miaoda_registerConfig({
     type: "web-static-embedded",
     embedded: {
       staticDirs: ["."],
-      baseUrl: "/ext-view/srk",
+      baseUrl: baseURL,
     },
   },
   keywords: [],
