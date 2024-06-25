@@ -6,7 +6,7 @@ const baseURL = "/ext-view/srk";
 export default fn_miaoda_registerConfig({
   name: "CyberChef工具集",
   id: "SRK-Toolbox",
-  version: "1.1.0",
+  version: "1.1.1",
   iconInStr: "BrandSupabase",
   logo: "./assets/icon.png",
   shortDesc:
