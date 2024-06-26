@@ -2,7 +2,7 @@
 extPkgInfoDir=$1
 extPkgDir=$2
 extPkgExtractDir=$3
-targetMiaodaFile=$
+targetMiaodaFile=$4
 if [ -z $targetMiaodaFile ];then
   echo "targetMiaodaFile is empty"
   exit 1
