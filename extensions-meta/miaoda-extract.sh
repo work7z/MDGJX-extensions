@@ -2,6 +2,11 @@
 extPkgInfoDir=$1
 extPkgDir=$2
 extPkgExtractDir=$3
+targetMiaodaFile=$4
+if [ -z $targetMiaodaFile ];then
+  echo "targetMiaodaFile is empty"
+  exit 1
+fi
 if [ -z $extPkgInfoDir ];then
   echo "extPkgInfoDir is empty"
   exit 1
@@ -17,6 +22,7 @@ fi
 echo "[I] running miaoda-extract.sh at $(date)"
 echo "extPkgInfoDir: $extPkgInfoDir"
 echo "extPkgDir: $extPkgDir"
+echo "targetMiaodaFile: $targetMiaodaFile"
 cd $extPkgDir
 for eachExt in `ls *.tar.gz`;
 do

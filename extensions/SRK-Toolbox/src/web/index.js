@@ -40,25 +40,26 @@ function main() {
         "Fork",
         "Magic"
     ];
-
+const isDark = location.href.indexOf("sysdarkmode=true") !== -1;
     const defaultOptions = {
-        updateUrl:           true,
-        showHighlighter:     true,
-        wordWrap:            true,
-        showErrors:          true,
-        errorTimeout:        4000,
-        attemptHighlight:    true,
-        theme:               "classic",
-        useMetaKey:          false,
-        logLevel:            "info",
-        autoMagic:           true,
-        imagePreview:        true,
-        syncTabs:            true
+        updateUrl: true,
+        showHighlighter: true,
+        wordWrap: true,
+        showErrors: true,
+        errorTimeout: 4000,
+        attemptHighlight: true,
+        theme:isDark ? "dark" : "classic",
+        useMetaKey: false,
+        logLevel: "info",
+        autoMagic: true,
+        imagePreview: true,
+        syncTabs: true,
     };
 
     document.removeEventListener("DOMContentLoaded", main, false);
     window.app = new App(Categories, OperationConfig, defaultFavourites, defaultOptions);
     window.app.setup();
+    window.app.manager.options.changeTheme(isDark ? "dark" : "classic");
 }
 
 window.compileTime = moment.tz(COMPILE_TIME, "DD/MM/YYYY HH:mm:ss z", "UTC").valueOf();

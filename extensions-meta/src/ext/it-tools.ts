@@ -3,10 +3,12 @@ import { toolsNavInfo } from "./it-tools/toolNavInfo";
 
 // Note: 目前基于最后一次成功commit进行编译，commit-id: 0cd3d77
 
+const baseURL = "/ext-view/xtools";
+
 export default fn_miaoda_registerConfig({
   name: "it-tools中文版",
   id: "it-tools",
-  version: "1.0.5",
+  version: "1.0.6",
   logo: "./assets/icon.png",
   iconInStr: 'Briefcase',
   shortDesc:
@@ -25,11 +27,13 @@ export default fn_miaoda_registerConfig({
         belongTo: 'tools',
         name: eachToolNavInfo.name,
         children: (eachToolNavInfo.subTools || []).map(eachSubTool => {
+          const idval = eachSubTool.id + ''
           return {
-            id: eachSubTool.id + '',
+            id: idval,
             iconInStr: eachSubTool?.icon?.name || 'AppWindows',
             disableFooter: true,
             name: eachSubTool.name,
+            moduleItemtURL: `${baseURL}/${idval}`,
             keywords: eachSubTool.keywords,
             description: eachSubTool.description,
           } satisfies SystemSubModuleItem
@@ -42,8 +46,8 @@ export default fn_miaoda_registerConfig({
     type: "web-static-embedded",
     embedded: {
       staticDirs: ["."],
-      baseUrl: "/ext-view/xtools",
-    },
+      baseUrl: baseURL,
+    },    
   },
   keywords: [],
   include: ["dist"],
