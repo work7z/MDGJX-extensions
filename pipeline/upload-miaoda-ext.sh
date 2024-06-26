@@ -37,7 +37,9 @@ doScp(){
   # upload files
   sftp -P 26609  $myserver <<< "put $ROOTPKGDIR/* $extPkgDir"
   sftp -P 26609  $myserver <<< "put $ROOTPKGINFODIR/* $extPkgInfoDir"
-  sftp -P 26609  $myserver <<< "put $MDGJX_EXT_ROOT/extensions-meta/miaoda-dist-all.json $extPkgInfoDir/miaoda-dist-all-$extGVersion.json"
+  targetMiaodaFile=$extPkgInfoDir/miaoda-dist-all-$extGVersion.json
+  srcDistFile=$MDGJX_EXT_ROOT/extensions-meta/miaoda-dist-all.json
+  sftp -P 26609  $myserver <<< "put $srcDistFile $targetMiaodaFile"
   ssh $myserver -p 26609 "date +%s > /home/appuser/extstatic/ext-root/timestamp.txt"
   ssh $myserver -p 26609 "date +%s > $extPkgInfoDir/timestamp.txt"
   ssh $myserver -p 26609 "echo $TAGNAME > $extPkgInfoDir/timestamp.txt"
@@ -46,9 +48,17 @@ doScp(){
   ssh $myserver -p 26609 "rm -rf $extPkgInfoDir/miaoda-extract.sh"
   sftp -P 26609  $myserver <<< "put $MDGJX_EXT_ROOT/extensions-meta/miaoda-extract.sh $extPkgInfoDir/miaoda-extract.sh"
   ssh $myserver -p 26609 "chmod +x $extPkgInfoDir/miaoda-extract.sh"
-  ssh $myserver -p 26609 "$extPkgInfoDir/miaoda-extract.sh $extPkgInfoDir $extPkgDir $extPkgExtractDir"
+  ssh $myserver -p 26609 "$extPkgInfoDir/miaoda-extract.sh $extPkgInfoDir $extPkgDir $extPkgExtractDir $targetMiaodaFile"
   # final commit
   ssh $myserver -p 26609 "echo $extGVersion > $extPkgInfoDir/ref.txt"
+
+  # save current ts to each extension in extPkgExtractDir
+  for eachExtId in `jq -r '.[].post_fullId' $srcDistFile`
+  do
+    echo "updating ts, eachExtId: $eachExtId"
+    ssh $myserver -p 26609 "date +%s > $extPkgExtractDir/$eachExtId/miaoda-installed-ack.flag"
+    echo "updated"
+  done
 
   # upload to cos
   ssh $myserver -p 26609 "cd /home/appuser/extstatic && ~/bin/coscli-linux cp ./ext-root/ cos://$BNAME/ext-root/ -r" 
