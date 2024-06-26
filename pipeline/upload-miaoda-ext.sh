@@ -59,7 +59,12 @@ doScp(){
   do
     pDir=$extPkgExtractDir/$eachExtId
     echo "updating ts $pDir, eachExtId: $eachExtId"
-    ssh $myserver -p 26609 "[ -d $pDir ] && date +%s > $pDir/miaoda-installed-ack.flag"
+    ssh $myserver -p 26609 "[ -d $pDir ]"
+    if [ $? -ne 0 ];then
+      echo "no $pDir, skip"
+      continue
+    fi
+    ssh $myserver -p 26609 "date +%s > $pDir/miaoda-installed-ack.flag"
     echo "updated"
   done
 
