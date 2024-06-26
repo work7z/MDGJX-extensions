@@ -113,7 +113,7 @@ let finArr: SystemSubModuleItem[] = _.values(
               disableFooter: true,
               name: opName,
               moduleItemQuery:{
-                recipe:                   opName + "(" + opConfig.args.map(convertArg).join(",") + ")"
+                recipe:                   opName + "()" //  + opConfig.args.map(convertArg).join(",") + ")"
               },
                 // "recipe=" +
                 // encodeURIComponent(
