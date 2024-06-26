@@ -18,9 +18,9 @@ const tmp_convertArg = (arg) => {
 
   if (arg.type === "toggleString") {
     // ensure string and option exist when user hasn't defined
-    arg.string = arg.string || "";
-    arg.option = arg.option || arg.toggleValues[0];
-    return arg;
+    // arg.string = arg.string || "";
+    // arg.option = arg.option || arg.toggleValues[0];
+    return arg.toggleValues[0];
   }
 
   return arg.value;
@@ -51,7 +51,11 @@ type StVal = {
 };
 
 console.log("cyberchef_file", cyberchefJSON);
-export const baseURL = "/ext-view/srk";
+export const baseURL = "/ext-view/srk/";
+
+// http://127.0.0.1:5173/ext-view/srk/#recipe=Base64%E7%BC%96%E7%A0%81('A-Za-z0-9%2B/%3D')
+// http://127.0.0.1:5173/ext-view/srk/#recipe=Base64%E7%BC%96%E7%A0%81('A-Za-z0-9%2B/%3D')
+// 
 
 let finArr: SystemSubModuleItem[] = _.values(
   cyberchefJSON.categories
@@ -97,19 +101,23 @@ let finArr: SystemSubModuleItem[] = _.values(
         category.name = "国内用户专属";
       }
       return {
-        id: py.convertToPinyin(category.name),
+        id: _.toLower(py.convertToPinyin(category.name)),
         iconInStr: "BrandSupabase",
         name: category.name,
         children: _.values(
           category.ops.map((opName) => {
             const opConfig = cyberchefJSON.operations[opName];
             return {
-              id: py.convertToPinyin(opName),
+              id: _.toLower(py.convertToPinyin(opName)),
               iconInStr: "BrandSupabase",
               disableFooter: true,
               name: opName,
-              moduleItemHashVal:
-                opName + "(" + opConfig.args.map(convertArg).join(",") + ")",
+              moduleItemQuery:{
+                recipe:                   opName + "(" + opConfig.args.map(convertArg).join(",") + ")"
+              },
+                // "recipe=" +
+                // encodeURIComponent(
+                // ).replace('%2F','/'),
               moduleItemtURL: `${baseURL}`,
               keywords: [
                 "CyberChef",
