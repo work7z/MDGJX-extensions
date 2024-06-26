@@ -58,13 +58,9 @@ doScp(){
   for eachExtId in `jq -r '.[].post_fullId' $srcDistFile`
   do
     pDir=$extPkgExtractDir/$eachExtId
-    if [ -d $pDir ];then 
-      echo "updating ts $pDir, eachExtId: $eachExtId"
-      ssh $myserver -p 26609 "date +%s > $pDir/miaoda-installed-ack.flag"
-      echo "updated"
-    else 
-      echo "skip updating $pDir"
-    fi
+    echo "updating ts $pDir, eachExtId: $eachExtId"
+    ssh $myserver -p 26609 "[ -d $pDir ] && date +%s > $pDir/miaoda-installed-ack.flag"
+    echo "updated"
   done
 
   # upload to cos
