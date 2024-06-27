@@ -57,22 +57,35 @@ export const baseURL = "/ext-view/srk/";
 // http://127.0.0.1:5173/ext-view/srk/#recipe=Base64%E7%BC%96%E7%A0%81('A-Za-z0-9%2B/%3D')
 // 
 
+const iconMap = {
+  "数据格式转换": "ArrowAutofitContent",
+  "加密与解密": "CircleKey",
+  "网络格式分析": "Network",
+  "字符串通用处理": "BubbleText",
+  "日期时间转换": "Clock2",
+  "摘要哈希工具": "Hash",
+  "常用压缩工具": "Zip",
+  "快速内容提取": "PackageExport",
+  "其他常用工具": "Teapot",
+  "代码格式化": "Code"
+}
+
 let finArr: SystemSubModuleItem[] = _.values(
   cyberchefJSON.categories
     .filter(
       (x) =>
         x.name !== "收藏" &&
         x.name !== "流程控制" &&
-        x.name !== "其他" &&  
-        ["多媒体", ].indexOf(x.name) === -1
+        x.name !== "其他" &&
+        ["多媒体",].indexOf(x.name) === -1
     )
     .map((category) => {
-      if (category.name == "鉴定"){
+      if (category.name == "鉴定") {
         category.name = "其他常用工具"
       }
-        if (category.name == "公钥") {
-          category.name = "公私钥转换";
-        }
+      if (category.name == "公钥") {
+        category.name = "公私钥转换";
+      }
       if (category.name == "算术 / 逻辑") {
         category.name = "算术与逻辑";
       }
@@ -100,24 +113,25 @@ let finArr: SystemSubModuleItem[] = _.values(
       if (category.name == "SRK Toolbox 专属") {
         category.name = "国内用户专属";
       }
+      const crtIcon = iconMap[category.name] || "BrandSupabase";
       return {
         id: _.toLower(py.convertToPinyin(category.name)),
-        iconInStr: "BrandSupabase",
+        iconInStr: crtIcon,
         name: category.name,
         children: _.values(
           category.ops.map((opName) => {
             const opConfig = cyberchefJSON.operations[opName];
             return {
               id: _.toLower(py.convertToPinyin(opName)),
-              iconInStr: "BrandSupabase",
+              iconInStr: crtIcon,
               disableFooter: true,
               name: opName,
-              moduleItemQuery:{
-                recipe:                   opName + "()" //  + opConfig.args.map(convertArg).join(",") + ")"
+              moduleItemQuery: {
+                recipe: opName + "()" //  + opConfig.args.map(convertArg).join(",") + ")"
               },
-                // "recipe=" +
-                // encodeURIComponent(
-                // ).replace('%2F','/'),
+              // "recipe=" +
+              // encodeURIComponent(
+              // ).replace('%2F','/'),
               moduleItemtURL: `${baseURL}`,
               keywords: [
                 "CyberChef",
@@ -127,7 +141,7 @@ let finArr: SystemSubModuleItem[] = _.values(
               description: _.truncate(
                 opConfig.description.split("。")[0] + "。",
                 {
-                  length: 100,
+                  length: 200,
                   omission: "...",
                 }
               ),
@@ -138,8 +152,8 @@ let finArr: SystemSubModuleItem[] = _.values(
     })
 );
 
-_.forEach(finArr,x=>{
-  const fromTo:{from:string,to:string}[] = [
+_.forEach(finArr, x => {
+  const fromTo: { from: string, to: string }[] = [
     {
       from: '语言',
       to: '字符串通用处理'
@@ -157,16 +171,16 @@ _.forEach(finArr,x=>{
       to: '字符串通用处理'
     }
   ]
-  for(const {from,to} of fromTo){
-    if(x.name === from){
+  for (const { from, to } of fromTo) {
+    if (x.name === from) {
       const tmpChild = x.children
-      x.children =[]
-      finArr.find(y=>y.name === to).children.push(...tmpChild)
+      x.children = []
+      finArr.find(y => y.name === to).children.push(...tmpChild)
     }
   }
 })
 
-finArr= finArr.filter(x=>x.children.length>0)
+finArr = finArr.filter(x => x.children.length > 0)
 
 export const menus = [
   // {
