@@ -26,23 +26,11 @@ const env = NODE_ENV || 'development';
 export const fn_getPort = () => {
   return 42019  // docs centre
 };
-export const fn_getExtViewPort = (): number => {
-  return parseInt(fn_getPort() + '') + 10;
-};
-export const fn_getExtViewPath = (): string => {
-  return '/ext-view'; // for extensions page view, will redirect to internal ext view servers
-};
 const port = fn_getPort();
-export const getExtStaticServer = () => {
-  return process.env.EXTSTATIC_SERVER || 'https://extstatic.mdgjx.com';
-};
 
 let DIRECT_PROXY_SERVER = process.env.DIRECT_PROXY_SERVER || API_SERVER_URL;
-let EXTSTATIC_SERVER = getExtStaticServer();
-const INTERNAL_EXT_VIEW_SERVER = `http://127.0.0.1:${fn_getExtViewPort()}`;
 
 import httpProxy from 'http-proxy';
-import { fn_runOrRestartExtViewAppServer } from './ext-view-app';
 var proxyWS = httpProxy
   .createProxyServer({
     target: DIRECT_PROXY_SERVER,
@@ -86,7 +74,6 @@ export class App {
     logger.info(`=================================`);
     logger.info(`======= ENV: ${this.env} =======`);
     logger.info(`======= HOST: ${this.host} =======`);
-    logger.info(`======= EXTSTATIC_SERVER: ${EXTSTATIC_SERVER} =======`);
     logger.info(`======= DIRECT_PROXY_SERVER: ${DIRECT_PROXY_SERVER} =======`);
     logger.info(`🚀 App listening on the port http://localhost:${this.port}`);
     logger.info(`=================================`);
@@ -115,15 +102,13 @@ export class App {
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(cookieParser());
-
   }
 
   private initializeRoutes(routes: Routes[]) {
     routes.forEach(route => {
       logger.info('route: ' + route.path);
-      this.app.use('/local', route.router);
+      this.app.use('/', route.router);
     });
-
     
     this.app.get('/killnow', (req, res) => {
       if (isDesktopMode) {
@@ -133,64 +118,6 @@ export class App {
       }
     });
     const app = this.app;
-
-    const proxyPrefixArr = ['/v3', '/ws'];
-    for (let i = 0; i < proxyPrefixArr.length; i++) {
-      const prefix = proxyPrefixArr[i];
-      logger.info('DIRECT_PROXY_SERVER: ' + DIRECT_PROXY_SERVER);
-      app.use(
-        prefix,
-        proxy(DIRECT_PROXY_SERVER, {
-          proxyReqPathResolver: function (req) {
-            var parts = req.url.split('?');
-            var queryString = parts[1];
-            var updatedPath = parts[0];
-            return prefix + updatedPath + (queryString ? '?' + queryString : '');
-          },
-        }),
-      );
-    }
-
-    // setup ext-view app
-    app.use(
-      fn_getExtViewPath(),
-      proxy(INTERNAL_EXT_VIEW_SERVER, {
-        proxyReqPathResolver: function (req) {
-          var parts = req.url.split('?');
-          var queryString = parts[1];
-          var updatedPath = parts[0];
-          return fn_getExtViewPath() + updatedPath + (queryString ? '?' + queryString : '');
-        },
-      }),
-    );
-
-    // setup extstatic /ext-root
-    const extStaticArr = ['/ext-root'];
-    for (let i = 0; i < extStaticArr.length; i++) {
-      const prefix = extStaticArr[i];
-      app.use(
-        prefix,
-        proxy(EXTSTATIC_SERVER, {
-          proxyReqPathResolver: function (req) {
-            var parts = req.url.split('?');
-            var queryString = parts[1];
-            var updatedPath = parts[0];
-            return prefix + updatedPath + (queryString ? '?' + queryString : '');
-          },
-        }),
-      );
-    }
-
-    // setup spa
-    let distDir = path.join(__dirname, 'spa');
-    if (existsSync(distDir)) {
-      // let us build this first
-      this.app.use(express.static(distDir, { extensions: ['html'] }));
-      // TODO: do seo stuff
-      this.app.get('/*', (req, res) => {
-        res.sendFile(path.resolve(distDir, 'index.html'));
-      });
-    }
 
     const ErrorMiddleware = (error: HttpException, req: Request, res: Response, next: NextFunction) => {
       try {

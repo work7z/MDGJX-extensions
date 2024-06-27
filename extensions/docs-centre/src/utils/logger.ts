@@ -6,7 +6,8 @@ import { LOG_DIR as tmp } from '@config';
 import { Console } from 'winston/lib/winston/transports';
 import { getRootDataDir } from '@/web2share-copy/homedir';
 import { getAppLogInternalDir } from '@/web2share-copy/appdir';
-let LOG_DIR = path.join(getAppLogInternalDir(), 'web2-server');
+
+let LOG_DIR = path.join(getAppLogInternalDir(), 'docs-centre');
 
 // if not exist
 if (!existsSync(LOG_DIR)) {
