@@ -5,7 +5,7 @@
   "author": "https://github.com/AykutSarac",
   "homepage": "https://jsoncrack.com",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 19090",
     "build": "next build",
     "start": "next start",
     "lint": "tsc --project tsconfig.json && eslint src && prettier --check src",
