@@ -1,6 +1,5 @@
+import InnerHome from "./InnerHome"
 
-export const HomePage = ()=>{
-    return <div className="">
-        <div>this is home page</div>
-    </div>
+export const HomePage = () => {
+    return <InnerHome />
 }
