@@ -1,24 +1,22 @@
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
-  type AudioType = {
-    src: string
-  }
-  const [songs, onSongs] = useState<AudioType[]>([])
+import '@mantine/core/styles.css';
+import { MantineProvider } from '@mantine/core';
+import { theme } from './theme.tsx';
+import './global.css'
+import { Provider, useDispatch } from "react-redux";
+import { Toaster, toast } from 'sonner'
+import AppRouter from './Router';
+import { useDocumentTitle } from '@mantine/hooks';
+
+export default function App() {
 
   return (
-    <>
-      <h1>
-        <audio src="./sounds/bgm/chopin.mp3"  ref={e=>{
-          e?.play()
-        }} controls></audio>
-      </h1>
-    </>
-  )
-}
+    // <Provider store={store}>
+      <MantineProvider theme={theme}>
+        <AppRouter />
+      </MantineProvider>
+    // </Provider>
+  );
 
-export default App
+
+}
