@@ -2,10 +2,11 @@
 
 打开/src/main，然后F12
 
-JSON.stringify({
+const ok = {
 categories: window.app.categories,
     operations: window.app.operations
-},null,0,2)
+}
+JSON.stringify(ok,null,0,2)
 
 
 第二步，把它右键以JSON格式保存下来

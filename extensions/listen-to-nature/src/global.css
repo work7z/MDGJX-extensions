@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.sub-mr-2 {
+    &>div {
+        margin-right: 2rem;
+    }
+}
+
+.scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}

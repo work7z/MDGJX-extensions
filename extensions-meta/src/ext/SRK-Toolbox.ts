@@ -1,12 +1,12 @@
 import { fn_miaoda_registerConfig } from "../m-types-copy/base/m-types-main";
+import {menus, baseURL} from './SRK-Toolbox/get-all-cyberchef'
 
 // Note: 目前基于最后一次成功commit进行编译，commit-id: 0cd3d77
-const baseURL = "/ext-view/srk";
-
 export default fn_miaoda_registerConfig({
   name: "CyberChef工具集",
   id: "SRK-Toolbox",
-  version: "1.1.3",
+  sortOrder: 2,
+  version: "1.1.5",
   iconInStr: "BrandSupabase",
   logo: "./assets/icon.png",
   shortDesc:
@@ -17,25 +17,7 @@ export default fn_miaoda_registerConfig({
   development: {
     entryLink: "http://localhost:40001",
   },
-  menus: [
-    {
-      id: "srk",
-      iconInStr: "BrandSupabase",
-      belongTo: "tools",
-      name: "CyberChef基础",
-      children: [
-        {
-          id: "main",
-          iconInStr: "BrandSupabase",
-          disableFooter: true,
-          name: "流程入口",
-          moduleItemtURL: `${baseURL}/`,
-          keywords: ["CyberChef", "SRK", "转换", "转换工具流", "工具","基础"],
-          description: `本功能提供CyberChef基础转换的流程入口。`
-        },
-      ],
-    },
-  ],
+  menus: menus,
   runtime: {
     // type: "web-static-standalone",
     // standalone: {

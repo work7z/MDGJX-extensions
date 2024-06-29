@@ -8,7 +8,8 @@ const baseURL = "/ext-view/xtools";
 export default fn_miaoda_registerConfig({
   name: "it-tools中文版",
   id: "it-tools",
-  version: "1.0.6",
+  sortOrder:1,
+  version: "1.0.8",
   logo: "./assets/icon.png",
   iconInStr: 'Briefcase',
   shortDesc:

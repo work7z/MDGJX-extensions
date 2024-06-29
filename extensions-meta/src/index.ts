@@ -29,6 +29,9 @@ _.forEach(extList, (x, d, n) => {
   if (prevIdObj[x.id]) {
     throw new Error("id " + x.id + " is duplicated");
   }
+  if(x.disabled){
+    return;
+  }
   prevIdObj[x.id] = true;
   x.post_fullId = `${x.id}@${x.version}`
   console.log("processing " + x.id);

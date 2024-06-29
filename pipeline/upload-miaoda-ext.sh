@@ -53,16 +53,19 @@ doScp(){
   ssh $myserver -p 26609 "echo $extGVersion > $extPkgInfoDir/ref.txt"
 
   # save current ts to each extension in extPkgExtractDir
+  echo "srcDistFile: $srcDistFile"
+  echo "start updating ts for $srcDistFile"
   for eachExtId in `jq -r '.[].post_fullId' $srcDistFile`
   do
     pDir=$extPkgExtractDir/$eachExtId
-    if [ -d $pDir ];then 
-      echo "updating ts, eachExtId: $eachExtId"
-      ssh $myserver -p 26609 "date +%s > $pDir/miaoda-installed-ack.flag"
-      echo "updated"
-    else 
-      echo "skip $pDir"
+    echo "updating ts $pDir, eachExtId: $eachExtId"
+    ssh $myserver -p 26609 "[ -d $pDir ]"
+    if [ $? -ne 0 ];then
+      echo "no $pDir, skip"
+      continue
     fi
+    ssh $myserver -p 26609 "date +%s > $pDir/miaoda-installed-ack.flag"
+    echo "updated"
   done
 
   # upload to cos
