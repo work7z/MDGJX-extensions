@@ -21,7 +21,11 @@ do
         mv $file.tmp $file 
     }
     cd $destDir
-    find . -type f -exec convertFile {} \; -print
+    for eachFile in `find . -type f`
+    do
+        echo "handling eachFile: $eachFile"
+        convertFile $eachFile
+    done
 done
 echo 'done'
 # end of file
