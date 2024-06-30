@@ -1,0 +1,29 @@
+<h1>标准库函数 - cursor</h1>
+<pre><code class="language-c">原型：extern void cursor(int mode);</code></pre>              
+<pre><code class="language-c">用法：#include &lt;system.h></code></pre>
+<pre><code class="language-c">功能：设定光标形态</code></pre>
+<pre><code class="language-c">说明：mode值含义如下：0x00：块状光标（默认）; 0x80：下划线光标; 其它值无意义</code></pre>
+  
+举例：
+<pre><code class="language-c">
+    // cursor.c
+    
+    #include &lt;system.h>
+
+    main()
+    {
+      int c;
+
+      clrscr();
+      cursor(0x00);
+      printf("press key to change cursor");
+      
+      getchar();
+      cursor(0x80);
+      
+      getchar();
+      return 0;
+    }
+</code></pre>   
+相关函数：无
+
