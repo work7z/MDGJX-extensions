@@ -14,7 +14,7 @@ window.restoreLocalStorageData = function (data = {}) {
     window[storageData].managed = managed
   }
 }
-// 保存到utools
+// 保存到mdgjx
 function saveData () {
   window.saveLocalStorageData && window.saveLocalStorageData({
     local: window[storageData].local,

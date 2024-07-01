@@ -1,0 +1,180 @@
+{
+  "auth": {
+    "create-your-account": "Utwórz swoje konto",
+    "host-tip": "Rejestrujesz się jako właściciel strony.",
+    "new-password": "Nowe hasło",
+    "repeat-new-password": "Powtórz nowe hasło"
+  },
+  "common": {
+    "about": "O aplikacji",
+    "admin": "Admin",
+    "archive": "Archiwizuj",
+    "archived": "Zarchiwizowane",
+    "avatar": "Awatar",
+    "basic": "Podstawowe",
+    "beta": "Beta",
+    "cancel": "Anuluj",
+    "change": "Zmień",
+    "clear": "Wyczyść",
+    "close": "Zamknij",
+    "confirm": "Potwierdź",
+    "create": "Utwórz",
+    "database": "Baza danych",
+    "delete": "Usuń",
+    "edit": "Edytuj",
+    "email": "Email",
+    "explore": "Odkrywaj",
+    "filter": "Filtruj",
+    "image": "Obrazek",
+    "inbox": "Skrzynka odbiorcza",
+    "language": "Język",
+    "link": "Link",
+    "mark": "Mark",
+    "name": "Nazwa",
+    "new": "Nowy",
+    "nickname": "Pseudonim",
+    "null": "Null",
+    "or": "lub",
+    "password": "Hasło",
+    "pin": "Przypnij",
+    "preview": "Podgląd",
+    "profile": "Profil",
+    "remember-me": "Zapamiętaj mnie",
+    "rename": "Zmień nazwę",
+    "reset": "Resetuj",
+    "resources": "Zasoby",
+    "restore": "Przywróć",
+    "save": "Zapisz",
+    "select": "Wybierz",
+    "settings": "Ustawienia",
+    "share": "Udostępnij",
+    "sign-in": "Zaloguj",
+    "sign-in-with": "Zaloguj z {{provider}}",
+    "sign-out": "Wyloguj",
+    "sign-up": "Utwórz konto",
+    "tags": "Tagi",
+    "title": "Tytuł",
+    "type": "Typ",
+    "unpin": "Odepnij",
+    "update": "Zaktualizuj",
+    "username": "Nazwa użytkownika",
+    "version": "Wersja",
+    "visibility": "Widoczność",
+    "yourself": "Ty"
+  },
+  "days": {
+    "fri": "Pt",
+    "mon": "Pon",
+    "sat": "Sob",
+    "sun": "Nie",
+    "thu": "Czw",
+    "tue": "Wt",
+    "wed": "Śr"
+  },
+  "editor": {
+    "any-thoughts": "Jakieś przemyślenia...",
+    "save": "Zapisz"
+  },
+  "memo": {
+    "archived-at": "Zarchiwizowano",
+    "comment": {
+      "self": "Komentarze"
+    },
+    "copy-link": "Kopiuj odnośnik",
+    "delete-memo": "Usuń notatkę",
+    "view-detail": "Zobacz szczegóły",
+    "visibility": {
+      "disabled": "Publiczne notatki są wyłączone",
+      "private": "Widoczne tylko dla ciebie",
+      "protected": "Widoczne dla użytkowników",
+      "public": "Publiczne"
+    }
+  },
+  "message": {
+    "change-memo-created-time": "Zmień datę utworzenia notatki",
+    "copied": "Skopiowano",
+    "fill-all": "Proszę uzupełnij wszystkie pola.",
+    "memo-not-found": "Nie znaleziono notatki.",
+    "new-password-not-match": "Nowe hasła się nie zgadzają.",
+    "password-changed": "Zmieniono hasło",
+    "password-not-match": "Hasła się nie zgadzają.",
+    "restored-successfully": "Pomyślnie przywrócono",
+    "succeed-copy-link": "Skopiowano link do schowka.",
+    "update-succeed": "Aktualizacja się powiodła",
+    "user-not-found": "Nie znaleziono użytkownika"
+  },
+  "resource": {
+    "clear": "Wyczyść",
+    "copy-link": "Kopiuj odnośnik",
+    "create-dialog": {
+      "external-link": {
+        "file-name": "Nazwa pliku",
+        "file-name-placeholder": "Nazwa pliku",
+        "link": "Link",
+        "link-placeholder": "https://link.do/twojego/zasobu",
+        "option": "Zewnętrzny odnośnik",
+        "type": "Typ",
+        "type-placeholder": "Typ pliku"
+      },
+      "local-file": {
+        "choose": "Wybierz plik…",
+        "option": "Plik lokalny"
+      }
+    },
+    "delete-resource": "Usuń zasób",
+    "fetching-data": "Pobieranie danych…",
+    "linked-amount": "Liczba kwalifikujących się notatek",
+    "no-resources": "Brak zasobów.",
+    "no-unused-resources": "Brak nieużywanych zasobów",
+    "reset-link": "Resetuj odnośnik",
+    "reset-resource-link": "Resetuj odnośnik zasobu"
+  },
+  "setting": {
+    "account-section": {
+      "change-password": "Zmień hasło",
+      "title": "Informacje o koncie",
+      "update-information": "Aktualizuj informacje"
+    },
+    "appearance-option": {
+      "dark": "Zawsze ciemny",
+      "light": "Zawsze jasny",
+      "system": "Systemowy"
+    },
+    "member": "Użytkownik",
+    "member-list": "Lista użytkowników",
+    "member-section": {
+      "create-a-member": "Utwórz użytkownika"
+    },
+    "my-account": "Moje konto",
+    "preference": "Ustawienia",
+    "preference-section": {
+      "default-memo-sort-option": "Wyświetlana data notatki",
+      "default-memo-visibility": "Domyślna widoczność notatki",
+      "theme": "Motyw"
+    },
+    "sso": "SSO",
+    "storage": "Przechowywanie",
+    "storage-section": {
+      "create-a-service": "Utwórz serwis",
+      "delete-storage": "Usuń serwis przechowywania",
+      "storage-services": "Lista usług przechowywania",
+      "update-a-service": "Aktualizuj serwis",
+      "warning-text": "Czy na pewno chcesz usunąć ten serwis przechowywania? Ta akcja jest nieodwracalna❗"
+    },
+    "system": "System",
+    "system-section": {
+      "additional-script": "Dodatkowy skrypt",
+      "additional-script-placeholder": "Dodatkowy kod JavaScript",
+      "additional-style": "Dodatkowy styl",
+      "additional-style-placeholder": "Dodatkowy kod CSS",
+      "allow-user-signup": "Zezwól na rejestrację",
+      "customize-server": {
+        "icon-url": "URL ikony",
+        "title": "Personalizuj serwer"
+      },
+      "disable-public-memos": "Wyłącz publiczne notatki",
+      "display-with-updated-time": "Display with updated time",
+      "server-name": "Nazwa serwera"
+    }
+  }
+}

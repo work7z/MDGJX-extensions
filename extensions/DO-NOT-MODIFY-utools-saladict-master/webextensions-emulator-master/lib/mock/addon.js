@@ -10,7 +10,7 @@ export function run () {
     }
   })
   // background页面
-  if (location.href.includes('utools.html')) {
+  if (location.href.includes('mdgjx.html')) {
 
   }
   // quick-search页面

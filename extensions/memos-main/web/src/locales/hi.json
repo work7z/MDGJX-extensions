@@ -1,0 +1,192 @@
+{
+  "auth": {
+    "host-tip": "आप साइट होस्ट के रूप में पंजीकृत हो रहे हैं।",
+    "new-password": "नया पासवर्ड",
+    "repeat-new-password": "नए पासवर्ड को दोहराएं"
+  },
+  "common": {
+    "about": "के बारे में",
+    "admin": "एडमिन",
+    "archive": "संग्रहीत करें",
+    "archived": "संग्रहीत",
+    "avatar": "अवतार",
+    "basic": "मूल",
+    "beta": "बीटा",
+    "cancel": "रद्द करें",
+    "change": "बदलें",
+    "clear": "साफ़ करें",
+    "close": "बंद करें",
+    "confirm": "पुष्टि करें",
+    "create": "बनाएँ",
+    "database": "डेटाबेस",
+    "delete": "हटाएँ",
+    "edit": "संपादित करें",
+    "email": "ईमेल",
+    "explore": "अन्वेषण करें",
+    "filter": "फ़िल्टर",
+    "home": "होम",
+    "image": "तस्वीर",
+    "language": "भाषा",
+    "learn-more": "अधिक जानें",
+    "link": "लिंक",
+    "mark": "चिह्नित",
+    "name": "नाम",
+    "new": "नया",
+    "nickname": "उपनाम",
+    "null": "शून्य",
+    "or": "या",
+    "password": "पासवर्ड",
+    "pin": "पिन करें",
+    "preview": "पूर्वावलोकन",
+    "rename": "नाम बदलें",
+    "reset": "रीसेट करें",
+    "resources": "संसाधन",
+    "restore": "पुनर्स्थापित करें",
+    "save": "सहेजें",
+    "select": "चयन करें",
+    "settings": "सेटिंग्स",
+    "share": "साझा करें",
+    "sign-in": "साइन इन करें",
+    "sign-in-with": "{{provider}} के साथ साइन इन करें",
+    "sign-out": "साइन आउट करें",
+    "sign-up": "साइन अप करें",
+    "tags": "टैग",
+    "title": "शीर्षक",
+    "type": "प्रकार",
+    "unpin": "अनपिन करें",
+    "update": "अपडेट करें",
+    "upload": "अपलोड करें",
+    "username": "उपयोगकर्ता नाम",
+    "version": "संस्करण",
+    "visibility": "दृश्यता",
+    "yourself": "खुद"
+  },
+  "days": {
+    "fri": "शुक्रवार",
+    "mon": "सोमवार",
+    "sat": "शनिवार",
+    "sun": "रविवार",
+    "thu": "गुरुवार",
+    "tue": "मंगलवार",
+    "wed": "बुधवार"
+  },
+  "editor": {
+    "any-thoughts": "कोई विचार...",
+    "save": "सहेजें"
+  },
+  "memo": {
+    "archived-at": "संग्रहीत किया गया",
+    "copy-link": "लिंक कॉपी करें",
+    "delete-confirm": "क्या आप इस मेमो को हटाने के लिए सुनिश्चित हैं?\n\nयह कार्रवाई अप्रत्याशित है।❗",
+    "delete-memo": "मेमो हटाएँ",
+    "embed": "एम्बेड करें",
+    "fetch-more": "और लाने के लिए यहां क्लिक करें",
+    "fetching-data": "डेटा लाया जा रहा है...",
+    "no-archived-memos": "कोई संग्रहीत मेमो नहीं।",
+    "search-placeholder": "मेमो खोजें",
+    "view-detail": "विवरण देखें",
+    "visibility": {
+      "disabled": "सार्वजनिक मेमो अक्षम किए गए हैं",
+      "private": "निजी",
+      "protected": "सदस्यों को दिखाई देता है",
+      "public": "सभी के लिए सार्वजनिक"
+    }
+  },
+  "message": {
+    "change-memo-created-time": "मेमो बनाने का समय बदलें",
+    "copied": "कॉपी किया गया",
+    "fill-all": "कृपया सभी फ़ील्ड भरें।",
+    "maximum-upload-size-is": "अधिकतम अपलोड साइज {{size}} MiB है",
+    "memo-not-found": "मेमो नहीं मिला।",
+    "new-password-not-match": "नए पासवर्ड मेल नहीं खाते।",
+    "no-data": "शायद कोई डेटा नहीं मिला, शायद यह किसी अन्य विकल्प हो सकता है।",
+    "password-changed": "पासवर्ड बदल दिया गया",
+    "password-not-match": "पासवर्ड मेल नहीं खाते।",
+    "restored-successfully": "सफलतापूर्वक पुनर्स्थापित किया गया",
+    "succeed-copy-link": "लिंक सफलतापूर्वक कॉपी किया गया।",
+    "update-succeed": "अपडेट सफल हुआ",
+    "user-not-found": "उपयोगकर्ता नहीं मिला"
+  },
+  "resource": {
+    "clear": "साफ़ करें",
+    "copy-link": "लिंक कॉपी करें",
+    "create-dialog": {
+      "external-link": {
+        "file-name": "फ़ाइल का नाम",
+        "file-name-placeholder": "फ़ाइल का नाम",
+        "link": "लिंक",
+        "link-placeholder": "https://the.link.to/your/resource",
+        "option": "बाह्य लिंक",
+        "type": "प्रकार",
+        "type-placeholder": "फ़ाइल प्रकार"
+      },
+      "local-file": {
+        "choose": "फ़ाइल चुनें...",
+        "option": "स्थानीय फ़ाइल"
+      },
+      "title": "संसाधन बनाएँ",
+      "upload-method": "अपलोड विधि"
+    },
+    "delete-resource": "संसाधन हटाएँ",
+    "delete-selected-resources": "चयनित संसाधनों को हटाएँ",
+    "fetching-data": "डेटा लाया जा रहा है...",
+    "file-drag-drop-prompt": "फ़ाइल अपलोड करने के लिए अपनी फ़ाइल यहां खींचें और छोड़ें",
+    "linked-amount": "लिंक की गई राशि",
+    "no-files-selected": "कोई फ़ाइलें चयनित नहीं हैं❗",
+    "no-resources": "कोई संसाधन नहीं।",
+    "no-unused-resources": "कोई अपयुक्त संसाधन नहीं हैं",
+    "reset-link": "लिंक रीसेट करें",
+    "reset-link-prompt": "क्या आप लिंक को रीसेट करने के लिए सुनिश्चित हैं?\nयह सभी वर्तमान लिंक उपयोगों को बिगाड़ देगा।\n\nयह कार्रवाई अप्रत्याशित है।❗",
+    "reset-resource-link": "संसाधन लिंक रीसेट करें"
+  },
+  "setting": {
+    "account-section": {
+      "change-password": "पासवर्ड बदलें",
+      "email-note": "वैकल्पिक",
+      "nickname-note": "बैनर में प्रदर्शित किया जाता है",
+      "openapi-reset": "OpenAPI कुंजी रीसेट करें",
+      "openapi-sample-post": "नमस्ते #memos से {{url}}",
+      "openapi-title": "OpenAPI",
+      "reset-api": "API रीसेट करें",
+      "title": "खाता जानकारी",
+      "update-information": "जानकारी अपडेट करें",
+      "username-note": "साइन इन करने के लिए उपयोग किया जाता है"
+    },
+    "member": "सदस्य",
+    "member-list": "सदस्य सूची",
+    "member-section": {
+      "delete-member": "सदस्य हटाएँ"
+    },
+    "my-account": "मेरा खाता",
+    "preference": "प्राथमिकता",
+    "preference-section": {
+      "default-memo-sort-option": "मेमो प्रदर्शन समय",
+      "default-memo-visibility": "डिफ़ॉल्ट मेमो दृश्यता",
+      "theme": "थीम"
+    },
+    "sso": "एसएसओ",
+    "storage": "संग्रहण",
+    "storage-section": {
+      "create-a-service": "सेवा बनाएँ",
+      "create-storage": "संग्रहण बनाएँ",
+      "current-storage": "वर्तमान ऑब्जेक्ट स्टोरेज",
+      "delete-storage": "संग्रहण हटाएँ",
+      "local-storage-path": "स्थानीय संग्रहण मार्ग",
+      "region": "क्षेत्र",
+      "region-placeholder": "जैसे: ap-northeast-1",
+      "storage-services": "स्टोरेज सेवा सूची",
+      "type-database": "डेटाबेस",
+      "type-local": "स्थानीय",
+      "update-a-service": "सेवा अपडेट करें",
+      "update-local-path": "स्थानीय संग्रहण मार्ग अपडेट करें",
+      "update-local-path-description": "स्थानीय संग्रहण मार्ग एक अपने डेटाबेस फ़ाइल के प्रति संबंधित मार्ग है",
+      "update-storage": "संग्रहण अपडेट करें",
+      "warning-text": "क्या आप स्टोरेज सेवा \"{{name}}\" को हटाने के लिए सुनिश्चित हैं?\n\nयह कार्रवाई अप्रत्याशित है।❗"
+    },
+    "system": "सिस्टम"
+  },
+  "tag": {
+    "all-tags": "सभी टैग",
+    "create-tag": "टैग बनाएँ"
+  }
+}

@@ -16,7 +16,7 @@ window.browser.tabs.create.callsFake(({ url }) => {
 })
 window.browser.tabs.query.callsFake((...args) => {
   if(_.isEmpty(args[0])){
-    return Promise.resolve([{id:'forWordSaved',url:'utools.html'}])
+    return Promise.resolve([{id:'forWordSaved',url:'mdgjx.html'}])
   }else{
     return Promise.resolve([])
   }

@@ -1,5 +1,5 @@
 import browser from 'sinon-chrome/webextensions'
-import { openIframe, utoolsStorage, loadAllJs, restoreIndexedBDData, restoreLocalStorageData } from '../mock/utils'
+import { openIframe, mdgjxStorage, loadAllJs, restoreIndexedBDData, restoreLocalStorageData } from '../mock/utils'
 import { exportDatabase } from '../mock/idb-export-import'
 import { run } from '../mock/addon'
 import '../mock/refactor.css'
@@ -15,8 +15,8 @@ let inited, enterEventListener;
 let localStorageData, indexedDBData, versionData;
 let latestVersion = '7.19.0'
 
-utools.onPluginEnter(({ code, type, payload }) => {
-    console.log('utools.onPluginEnter')
+mdgjx.onPluginEnter(({ code, type, payload }) => {
+    console.log('mdgjx.onPluginEnter')
     // let clipboardText = clipboard.readText();
     if (payload == "沙拉查词" || payload == "saladict") {
         payload = ''
@@ -31,7 +31,7 @@ utools.onPluginEnter(({ code, type, payload }) => {
                 let textArea = document.querySelectorAll('textarea');
                 textArea = textArea[textArea.length - 1];
                 let text = textArea.value;
-                utools.copyText(text)
+                mdgjx.copyText(text)
             }else if(cmd == 'paste'){
                 document.getElementById("saladict-paste").value = payload
             }
@@ -44,15 +44,15 @@ utools.onPluginEnter(({ code, type, payload }) => {
 })
 
 async function init() {
-    utools.db.remove("indexedDBData")
-    localStorageData = new utoolsStorage('localStorageData');
-    indexedDBData = new utoolsStorage('indexedDBDataV2');
-    versionData = new utoolsStorage('versionData');
+    mdgjx.db.remove("indexedDBData")
+    localStorageData = new mdgjxStorage('localStorageData');
+    indexedDBData = new mdgjxStorage('indexedDBDataV2');
+    versionData = new mdgjxStorage('versionData');
     // 还原内部storage
     restoreLocalStorageData(localStorageData);
     // 还原indexedDB
     await restoreIndexedBDData(indexedDBData)
-    let utoolsPageScript = [
+    let mdgjxPageScript = [
         "assets/runtime.4097fa5f.js",
         "assets/view-vendor.13bec606.js",
         "assets/dexie.c13adbda.js",
@@ -60,7 +60,7 @@ async function init() {
         "assets/background.68a7256d.js"
     ];
     // 加载沙拉
-    await loadAllJs(utoolsPageScript);
+    await loadAllJs(mdgjxPageScript);
     
     inited = true;
     await mockOnInstalled();
@@ -69,8 +69,8 @@ async function init() {
 }
 window.init = init;
 console.log('core run ')
-utools.onPluginReady(() => {
-    console.log('utools.onPluginReady')
+mdgjx.onPluginReady(() => {
+    console.log('mdgjx.onPluginReady')
     init()
 })
 // 模拟install事件
@@ -124,7 +124,7 @@ function saveLocalStorageData(data) {
     }
 }
 window.outPlugin = function () {
-    utools.outPlugin()
+    mdgjx.outPlugin()
 }
 window.latestVersion = latestVersion;
 window.saveLocalStorageData = saveLocalStorageData;

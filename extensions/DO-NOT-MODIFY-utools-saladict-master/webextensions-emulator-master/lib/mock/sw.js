@@ -28,7 +28,7 @@ self.addEventListener("fetch", function (event) {
     console.log("splitUrl", splitUrl)
     event.respondWith(fetch(splitUrl));
   }
-//   if (url.includes("utools.html")) {
+//   if (url.includes("mdgjx.html")) {
 //   } else {
 //     event.respondWith(fetch(event.request.url));
 //   }
