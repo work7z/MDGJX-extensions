@@ -1,0 +1,167 @@
+{
+  "auth": {
+    "host-tip": "Registrirani ste kot gostitelj strani."
+  },
+  "common": {
+    "about": "O programu",
+    "admin": "Admin",
+    "archive": "Arhiv",
+    "archived": "Arhivirani",
+    "avatar": "Avatar",
+    "basic": "Osnovni",
+    "cancel": "Prekliči",
+    "change": "Spremeni",
+    "close": "Zapri",
+    "confirm": "Potrdi",
+    "create": "Dodaj",
+    "database": "Baza",
+    "delete": "Izbriši",
+    "edit": "Uredi",
+    "email": "Email",
+    "explore": "Razišči",
+    "filter": "Filter",
+    "home": "Domov",
+    "image": "Slika",
+    "language": "Jezik",
+    "link": "Povezava",
+    "mark": "Mark",
+    "nickname": "Nadimek",
+    "null": "Nič",
+    "password": "Geslo",
+    "pin": "Pripni",
+    "reset": "Ponastavi",
+    "resources": "Viri",
+    "restore": "Privzeto",
+    "save": "Shrani",
+    "select": "Izberi",
+    "settings": "Nastavitve",
+    "share": "Deli",
+    "sign-in": "Prijavi se",
+    "sign-out": "Odjavi se",
+    "sign-up": "Registriraj",
+    "tags": "Značke",
+    "title": "Naslov",
+    "type": "Tip",
+    "unpin": "Odpni",
+    "username": "Uporabnik",
+    "version": "Verzija",
+    "yourself": "Ti"
+  },
+  "days": {
+    "fri": "Pet",
+    "mon": "Pon",
+    "sat": "Sob",
+    "sun": "Ned",
+    "thu": "Čet",
+    "tue": "Tor",
+    "wed": "Sre"
+  },
+  "editor": {
+    "any-thoughts": "Kakšne misli...",
+    "save": "Shrani"
+  },
+  "memo": {
+    "copy-link": "Kopiraj povezavo",
+    "embed": "Vdelaj beležko",
+    "view-detail": "Poglej podrobnosti",
+    "visibility": {
+      "disabled": "Javne beležke so onemogočene",
+      "private": "Vidno samo za vas",
+      "protected": "Vidno uporabnikom",
+      "public": "Vidno vsem"
+    }
+  },
+  "message": {
+    "change-memo-created-time": "Spremeni čas izdelave beležke",
+    "copied": "Skopirano",
+    "fill-all": "Prosim izpolnite vsa polja.",
+    "memo-not-found": "Ne najdem beležke.",
+    "new-password-not-match": "Novi gesli se ne ujemata.",
+    "password-changed": "Geslo je spremenjeno",
+    "password-not-match": "Gesli se ne ujemata.",
+    "restored-successfully": "Uspešno obnovljeno",
+    "succeed-copy-link": "Povezava je uspešno skopirana.",
+    "update-succeed": "Posodobitev je uspešna",
+    "user-not-found": "Ne najdem uporabnika"
+  },
+  "resource": {
+    "clear": "Počisti",
+    "copy-link": "Kopiraj povezavo",
+    "create-dialog": {
+      "external-link": {
+        "file-name": "Ime datoteke",
+        "file-name-placeholder": "Ime datoteke",
+        "link": "Povezava",
+        "option": "Zunanja povezava",
+        "type": "Tip",
+        "type-placeholder": "Tip datoteke"
+      },
+      "local-file": {
+        "choose": "Izberite datoteko...",
+        "option": "Lokalna datoteka"
+      },
+      "title": "Dodaj vir",
+      "upload-method": "Metoda nalaganja"
+    },
+    "delete-resource": "Izbriši vir",
+    "delete-selected-resources": "Izbrišite izbrane vire",
+    "fetching-data": "pridobivam podatke...",
+    "file-drag-drop-prompt": "Za nalaganje, tu povlecite in spustite vaše datoteke",
+    "linked-amount": "Povezana količina beležk",
+    "no-files-selected": "Nobena datoteka ni označena❗",
+    "no-resources": "Ni virov.",
+    "no-unused-resources": "Ni neuporabljenih virov"
+  },
+  "setting": {
+    "account-section": {
+      "change-password": "Zamenjaj geslo",
+      "title": "Podatki o računu",
+      "update-information": "Posodobi informacije"
+    },
+    "appearance-option": {
+      "dark": "Vedno temna",
+      "light": "Vedno svetla",
+      "system": "Sledi sistemu"
+    },
+    "member": "Uporabnik",
+    "member-list": "Seznam uporabnikov",
+    "member-section": {
+      "create-a-member": "Dodaj novega uporabnika"
+    },
+    "my-account": "Moj račun",
+    "preference": "Nastavitve",
+    "preference-section": {
+      "default-memo-sort-option": "Čas prikaza beležke",
+      "default-memo-visibility": "Privzeta vidnost beležke",
+      "theme": "Tema"
+    },
+    "sso": "SSO",
+    "storage": "Shramba",
+    "storage-section": {
+      "create-a-service": "Kreiraj storitev",
+      "delete-storage": "Izbriši shrambo",
+      "storage-services": "Seznam storitev shramb",
+      "update-a-service": "Posodobi storitev",
+      "warning-text": "Ali ste prepričani, da želite izbrisati storitev shrambe? TA AKCIJA JE NEPOVRATNA❗"
+    },
+    "system": "Sistem",
+    "system-section": {
+      "additional-script": "Dodatne skripte",
+      "additional-script-placeholder": "Dodatna JavaScript koda",
+      "additional-style": "Dodatni stili",
+      "additional-style-placeholder": "Dodatna CSS koda",
+      "allow-user-signup": "Omogočite kreiranje novih uporabnikov",
+      "customize-server": {
+        "icon-url": "URL ikone",
+        "title": "Prilagodi strežnik"
+      },
+      "disable-public-memos": "Onemogočite javne beležke",
+      "display-with-updated-time": "Display with updated time",
+      "server-name": "Ime strežnika"
+    }
+  },
+  "tag": {
+    "all-tags": "Vse značke",
+    "create-tag": "Kreiraj značko"
+  }
+}

@@ -1,0 +1,91 @@
+syntax = "proto3";
+
+package memos.store;
+
+option go_package = "gen/store";
+
+enum WorkspaceSettingKey {
+  WORKSPACE_SETTING_KEY_UNSPECIFIED = 0;
+  // BASIC is the key for basic settings.
+  BASIC = 1;
+  // GENERAL is the key for general settings.
+  GENERAL = 2;
+  // STORAGE is the key for storage settings.
+  STORAGE = 3;
+  // MEMO_RELATED is the key for memo related settings.
+  MEMO_RELATED = 4;
+}
+
+message WorkspaceSetting {
+  WorkspaceSettingKey key = 1;
+  oneof value {
+    WorkspaceBasicSetting basic_setting = 2;
+    WorkspaceGeneralSetting general_setting = 3;
+    WorkspaceStorageSetting storage_setting = 4;
+    WorkspaceMemoRelatedSetting memo_related_setting = 5;
+  }
+}
+
+message WorkspaceBasicSetting {
+  string secret_key = 1;
+}
+
+message WorkspaceGeneralSetting {
+  // additional_script is the additional script.
+  string additional_script = 3;
+  // additional_style is the additional style.
+  string additional_style = 4;
+  // custom_profile is the custom profile.
+  WorkspaceCustomProfile custom_profile = 5;
+}
+
+message WorkspaceCustomProfile {
+  string title = 1;
+  string description = 2;
+  string logo_url = 3;
+  string locale = 4;
+  string appearance = 5;
+}
+
+message WorkspaceStorageSetting {
+  enum StorageType {
+    STORAGE_TYPE_UNSPECIFIED = 0;
+    // STORAGE_TYPE_DATABASE is the database storage type.
+    DATABASE = 1;
+    // STORAGE_TYPE_LOCAL is the local storage type.
+    LOCAL = 2;
+    // STORAGE_TYPE_S3 is the S3 storage type.
+    S3 = 3;
+  }
+  // storage_type is the storage type.
+  StorageType storage_type = 1;
+  // The template of file path.
+  // e.g. assets/{timestamp}_{filename}
+  string filepath_template = 2;
+  // The max upload size in megabytes.
+  int64 upload_size_limit_mb = 3;
+  // The S3 config.
+  StorageS3Config s3_config = 4;
+}
+
+// Reference: https://developers.cloudflare.com/r2/examples/aws/aws-sdk-go/
+message StorageS3Config {
+  string access_key_id = 1;
+  string access_key_secret = 2;
+  string endpoint = 3;
+  string region = 4;
+  string bucket = 5;
+}
+
+message WorkspaceMemoRelatedSetting {
+  // disallow_public_share disallows set memo as public visible.
+  bool disallow_public_visible = 1;
+  // display_with_update_time orders and displays memo with update time.
+  bool display_with_update_time = 2;
+  // content_length_limit is the limit of content length. Unit is byte.
+  int32 content_length_limit = 3;
+  // enable_auto_compact enables auto compact for large content.
+  bool enable_auto_compact = 4;
+  // enable_double_click_edit enables editing on double click.
+  bool enable_double_click_edit = 5;
+}

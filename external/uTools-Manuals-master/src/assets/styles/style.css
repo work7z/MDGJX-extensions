@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+}
+
+#mainlist {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: none;
+}
+
+#mainlist .info {
+    background: #f5f5f533;
+    cursor: pointer;
+    height: 50px;
+}
+
+#mainlist .name {
+    padding-top: 10px;
+    font-family: "consolas";
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#mainlist .type {
+    float: right;
+    margin: 15px 10px;
+    height: 20px;
+    color: #666666
+}
+
+#mainlist .description {
+    color: #888888;
+    font-size: small;
+    font-family: "consolas";
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+#mainlist .initial {
+    float: left;
+    margin: 15px 10px;
+    height: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "courier new",微软雅黑;
+    color: #2196F3;
+    text-shadow: 1px 1px black;
+}
+
+#mainlist .select{
+    background: #ebebeb;
+}
+
+#manual {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 2rem 3rem;
+    display: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.load {
+    position: absolute;
+    bottom: 20px;
+    /* left: 0; */
+    right: 20px;
+    line-height: 1;
+    margin-top: -.6em;
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: -.125rem;
+    color: #BDBDBD;
+    text-align: center;
+    background: white;
+    display: none;
+}
+
+#infopannel {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 1rem;
+    color: white;
+    background: #24292ee3;
+    display: none;
+}
+
+.founds {
+    background-color: #ff572236;
+    color: #fd4005;
+    border-radius: 4px;
+}
+
+.listFounds {
+    color: #FF5722;
+}
+
+.firstFound{
+    box-shadow: 0px 0px 5px 1px #FF5722;
+}
+
+
+/* ::-webkit-scrollbar {
+    height: 3px;
+} */

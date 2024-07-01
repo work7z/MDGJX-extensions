@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package memos.store;
+
+option go_package = "gen/store";
+
+message MemoPayload {
+  // property is the memo's property.
+  Property property = 1;
+
+  message Property {
+    repeated string tags = 1;
+    bool has_link = 2;
+    bool has_task_list = 3;
+    bool has_code = 4;
+    bool has_incomplete_tasks = 5;
+  }
+}

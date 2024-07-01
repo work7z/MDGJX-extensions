@@ -1,0 +1,139 @@
+{
+  "auth": {
+    "host-tip": "Du registerar dig som webbplatsvärd."
+  },
+  "common": {
+    "about": "Om",
+    "admin": "Admin",
+    "archive": "Arkivera",
+    "avatar": "Avatar",
+    "basic": "Grundläggande",
+    "cancel": "Avbryt",
+    "change": "Ändra",
+    "close": "Stäng",
+    "confirm": "Bekräfta",
+    "create": "Skapa",
+    "database": "Databas",
+    "delete": "Radera",
+    "edit": "Redigera",
+    "email": "E-post",
+    "explore": "Utforska",
+    "filter": "Filter",
+    "image": "Bild",
+    "language": "Språk",
+    "link": "Länk",
+    "mark": "Mark",
+    "nickname": "Smeknamn",
+    "null": "Null",
+    "password": "Lösenord",
+    "pin": "Fäst",
+    "reset": "Återställ",
+    "restore": "Återställ",
+    "save": "Spara",
+    "select": "Select",
+    "share": "Dela",
+    "sign-in": "Logga in",
+    "sign-out": "Logga ut",
+    "sign-up": "Bli medlem",
+    "tags": "Taggar",
+    "title": "Titel",
+    "type": "Typ",
+    "unpin": "Ta bort fäst",
+    "username": "Användarnamn",
+    "version": "Version",
+    "yourself": "Själv"
+  },
+  "days": {
+    "fri": "Fre",
+    "mon": "Mån",
+    "sat": "Lör",
+    "sun": "Sön",
+    "thu": "Tors",
+    "tue": "Tis",
+    "wed": "Ons"
+  },
+  "editor": {
+    "any-thoughts": "Några tankar...",
+    "save": "Spara"
+  },
+  "memo": {
+    "copy-link": "Kopiera länk",
+    "view-detail": "Visa detaljer",
+    "visibility": {
+      "disabled": "Offentliga anteckningar är inaktiverade",
+      "private": "Endast synlig för dig",
+      "protected": "Synlig för medlemmar",
+      "public": "Synlig för alla"
+    }
+  },
+  "message": {
+    "change-memo-created-time": "Ändra anteckning skapade tid",
+    "copied": "Kopierad",
+    "fill-all": "Var god fyll i alla fält.",
+    "memo-not-found": "Anteckning hittades inte.",
+    "new-password-not-match": "Nya lösenord matchar inte.",
+    "password-changed": "Lösenord ändrat",
+    "password-not-match": "Lösenorden matchar inte.",
+    "restored-successfully": "Återställdes framgångsrikt",
+    "succeed-copy-link": "Länk kopierades framgångsrikt.",
+    "update-succeed": "Uppdateras framgångsrikt",
+    "user-not-found": "Användaren hittades inte"
+  },
+  "resource": {
+    "clear": "Rensa",
+    "copy-link": "Kopiera länk",
+    "delete-resource": "Ta bort resurs",
+    "fetching-data": "hämtar data...",
+    "linked-amount": "Länkat antecknings belopp",
+    "no-resources": "Inga resurser.",
+    "no-unused-resources": "Inga oanvända resurser"
+  },
+  "setting": {
+    "account-section": {
+      "change-password": "Ändra lösenord",
+      "title": "Kontoinformation",
+      "update-information": "Uppdatera informationen"
+    },
+    "appearance-option": {
+      "dark": "Alltid mörk",
+      "light": "Alltid ljus",
+      "system": "Follow system"
+    },
+    "member": "Medlem",
+    "member-list": "Medlemslista",
+    "member-section": {
+      "create-a-member": "Skapa en medlem"
+    },
+    "my-account": "Mitt konto",
+    "preference": "Preferenser",
+    "preference-section": {
+      "default-memo-sort-option": "Anteckning visningstid",
+      "default-memo-visibility": "Standard synlighet för anteckningar",
+      "theme": "Tema"
+    },
+    "sso": "SSO",
+    "storage": "Lagring",
+    "storage-section": {
+      "create-a-service": "Skapa en tjänst",
+      "delete-storage": "Ta bort lagring",
+      "storage-services": "Lista över lagringstjänster",
+      "update-a-service": "Uppdatera en tjänst",
+      "warning-text": "Är du säker på att ta bort den här lagringstjänsten? DEN HÄR ÅTGÄRDEN ÄR IRREVERSIBEL❗"
+    },
+    "system": "System",
+    "system-section": {
+      "additional-script": "Ytterligare skript",
+      "additional-script-placeholder": "Ytterligare JavaScript kod",
+      "additional-style": "Ytterligare stil",
+      "additional-style-placeholder": "Ytterligare CSS kod",
+      "allow-user-signup": "Tillåt användarregistrering",
+      "customize-server": {
+        "icon-url": "Icon URL",
+        "title": "Customize Server"
+      },
+      "disable-public-memos": "Inaktivera offentliga anteckningar",
+      "display-with-updated-time": "Display with updated time",
+      "server-name": "Server Name"
+    }
+  }
+}
