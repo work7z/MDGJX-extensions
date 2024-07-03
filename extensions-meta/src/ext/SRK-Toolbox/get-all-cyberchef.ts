@@ -182,6 +182,19 @@ _.forEach(finArr, x => {
 
 finArr = finArr.filter(x => x.children.length > 0)
 
+// 再检查一下，去除掉一些菜单栏的配置
+const existObj = {}
+finArr.forEach(x=>{
+  x.children = x.children.filter(x=>{
+    if(existObj[x.name]){
+      return false;
+    }else{
+      existObj[x.name] = 1
+      return true;
+    }
+  })
+})
+
 export const menus = [
   // {
   //   id: "srk",

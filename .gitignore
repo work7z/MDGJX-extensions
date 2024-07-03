@@ -1,10 +1,11 @@
 # Compiled class file
 upx-example
-upx
 *.class
+upx-temp
 
 # Log file
 *.log
+upx-backup
 
 # BlueJ files
 *.ctxt

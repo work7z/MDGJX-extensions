@@ -41,6 +41,14 @@ async function upxExtract(upxPath) {
     // 使用asar库解压.asar文件
     await asar.extractAll(folderPath + ".asar", folderPath);
     console.log("已解压.asar文件");
+
+    const pluginJson = path.join(folderPath, "plugin.json");
+    if(!fs.existsSync(pluginJson)) {
+      console.error("未找到plugin.json文件！");
+      process.exit(1);
+    }else{
+      console.log("找到plugin.json文件！");
+    }
   } catch (error) {
     console.error("处理文件时出错:", error);
   }
