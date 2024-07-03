@@ -67,7 +67,14 @@ async function upxExtract(upxPath) {
         external_CFG_A: thePlugin
       },
       include: [],
-      menus: []
+      menus: [
+        // TODO: show the menus
+        // {
+        //   id: thePlugin.pluginName,
+        //   name: thePlugin.pluginName,
+        //   icon: "extension",          
+        // }
+      ]
     }
     const miaodaDistFile = path.join(folderPath, "miaoda-dist.json");
     fs.writeFileSync(miaodaDistFile, JSON.stringify(newConfig, null, 2));
