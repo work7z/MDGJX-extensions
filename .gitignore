@@ -5,6 +5,7 @@ upx
 
 # Log file
 *.log
+upx-backup
 
 # BlueJ files
 *.ctxt
