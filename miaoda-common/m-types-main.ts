@@ -103,7 +103,7 @@ export type MiaodaBasicConfig = {
     entryLink: string;
   };
   runtime: {
-    type: "web-static-embedded" | "web-static-standalone";
+    type: "web-static-embedded" | "web-static-standalone" | "external-config-a";
     standalone?: {
       ports: number[]; // attempt to host the static files on these ports
       onlineURL: string; // where the static files are hosted online
@@ -112,9 +112,9 @@ export type MiaodaBasicConfig = {
       staticDirs: string[];
       baseUrl: string; // 用户需要自己定义，要求baseUrl是以EXT_VIEW_PREFIX开头
     };
+    // Cfg A
+    external_CFG_A?: ExternalConfigA;
   };
-  // Cfg A
-  external_CFG_A: ExternalConfigA;
   keywords?: string[];
   include: string[];
   menus: MiaodaDyanmicMenuItem[];

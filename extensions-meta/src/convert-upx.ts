@@ -1,5 +1,7 @@
 // node ./convert-upx.js 
 
+import { ExternalConfigA, MiaodaBasicConfig } from "./m-types-copy/base/m-types-main";
+
 const fs = require("fs");
 const path = require("path");
 const compressing = require("compressing");
@@ -49,8 +51,30 @@ async function upxExtract(upxPath) {
     }else{
       console.log("找到plugin.json文件！");
     }
+    // jsdoc
+    const thePlugin:ExternalConfigA = JSON.parse(fs.readFileSync(pluginJson, "utf-8"));
+    const newConfig:MiaodaBasicConfig = {
+      id: thePlugin.name,
+      version: thePlugin.version,
+      name: thePlugin.pluginName,
+      shortDesc: thePlugin.description,
+      description: "",
+      development: {
+        entryLink: ""
+      },
+      runtime: {
+        type: "external-config-a",
+        external_CFG_A: thePlugin
+      },
+      include: [],
+      menus: []
+    }
+    const miaodaDistFile = path.join(folderPath, "miaoda-dist.json");
+    fs.writeFileSync(miaodaDistFile, JSON.stringify(newConfig, null, 2));
+    console.log("已生成miaoda-dist.json文件");
   } catch (error) {
     console.error("处理文件时出错:", error);
+    process.exit(1);
   }
 }
 
