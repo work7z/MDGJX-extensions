@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "compile":"rm -rf dist && npx tsc",
+    "test-db-load":"rm -rf dist && npx tsc && node ./dist/test-db-load.js",
     "build": "rm -rf dist && npx tsc && node ./dist/index.js"
   },
   "keywords": [],
