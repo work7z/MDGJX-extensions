@@ -11,7 +11,7 @@ const fs = require("fs");
 const path = require("path");
 const compressing = require("compressing");
 const asar = require("asar");
-const TinyPinyin = require('tiny-pinyin')
+const TinyPinyin = require("tiny-pinyin");
 
 // 检查命令行参数是否提供了要处理的文件路径
 if (process.argv.length !== 3) {
@@ -57,7 +57,7 @@ async function upxExtract(upxPath) {
     } else {
       console.log("找到plugin.json文件！");
     }
-    
+
     // jsdoc
     const thePlugin: ExternalConfigA = JSON.parse(
       fs.readFileSync(pluginJson, "utf-8")
@@ -87,13 +87,13 @@ async function upxExtract(upxPath) {
           id: "p-" + enName,
           iconInStr: "Briefcase", // 应该用真实的icon来显示
           belongTo: "tools",
-          name: eachToolNavInfo.name,
+          name: "" + eachToolNavInfo.pluginName,
           children: [
             {
               id: enName,
               iconInStr: "AppWindows",
               disableFooter: true,
-              name: eachToolNavInfo.name,
+              name: eachToolNavInfo.pluginName,
               moduleItemtURL: `/ext-view/${enName}`,
               keywords: [],
               description: eachToolNavInfo.description,
