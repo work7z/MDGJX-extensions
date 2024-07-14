@@ -3,9 +3,9 @@ cd $MDGJX_EXT_ROOT/extensions-meta
 npm i -S -D --force
 npm run compile
 
-cd $MDGJX_EXT_ROOT/e2e
+cd $MDGJX_EXT_ROOT/external
 set -e
-cd $MDGJX_EXT_ROOT/e2e
+cd $MDGJX_EXT_ROOT/external
 [ -d ./upx-temp ] && rm -rf ./upx-temp
 mkdir -p ./upx-temp
 cp -a ./upx/* ./upx-temp

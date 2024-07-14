@@ -38,6 +38,18 @@ if (fileExt !== ".upx") {
   process.exit(1);
 }
 
+// const upxStaticFilesDir = path.join(
+//   process.env.MDGJX_EXT_ROOT+'',
+//   'external',
+//   'upx-static-files',
+//   'logos'
+//  )
+
+// // if upx-static-files dir not exists, create it
+// if (!fs.existsSync(upxStaticFilesDir)) {
+//   fs.mkdirSync(upxStaticFilesDir, { recursive: true });
+// }
+
 // 解压.upx文件
 async function upxExtract(upxPath) {
   try {
@@ -63,11 +75,22 @@ async function upxExtract(upxPath) {
       fs.readFileSync(pluginJson, "utf-8")
     );
     const eachToolNavInfo = thePlugin;
-    const enName = _.toLower(
+    const extIdInEnName = _.toLower(
       TinyPinyin.convertToPinyin(eachToolNavInfo.pluginName) +
         "-" +
         eachToolNavInfo.version
     );
+    const logoFile = path.join(folderPath, eachToolNavInfo.logo);
+    if(!fs.existsSync(logoFile)) {
+      console.error("未找到logo文件，请检查 "+logoFile);
+      process.exit(1);
+    }else{
+      console.log("找到logo文件，复制中！");
+      // copy logoFile to folderPath/logo.<ext>
+      fs.copyFileSync(logoFile, path.join(folderPath, "logo."+(
+        eachToolNavInfo.logo.split(".").pop()
+      )));
+    }
     const newConfig: MiaodaBasicConfig = {
       id: thePlugin.name,
       version: thePlugin.version,
@@ -84,17 +107,17 @@ async function upxExtract(upxPath) {
       include: [],
       menus: [
         {
-          id: "p-" + enName,
+          id: "p-" + extIdInEnName,
           iconInStr: "Tools", // 应该用真实的icon来显示
           belongTo: "tools",
           name: "" + eachToolNavInfo.pluginName,
           children: [
             {
-              id: enName,
+              id: extIdInEnName,
               iconInStr: "AppWindows",
               disableFooter: true,
               name: eachToolNavInfo.pluginName,
-              moduleItemtURL: `/ext-view/${enName}`,
+              moduleItemtURL: `/ext-view/${extIdInEnName}`,
               keywords: [],
               description: eachToolNavInfo.description,
             } satisfies SystemSubModuleItem,
