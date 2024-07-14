@@ -85,7 +85,7 @@ async function upxExtract(upxPath) {
       menus: [
         {
           id: "p-" + enName,
-          iconInStr: "Briefcase", // 应该用真实的icon来显示
+          iconInStr: "Tools", // 应该用真实的icon来显示
           belongTo: "tools",
           name: "" + eachToolNavInfo.pluginName,
           children: [
