@@ -1,5 +1,6 @@
 {
   "name": "e2e",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "convert-upx.js",
@@ -10,9 +11,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^20.14.9",
     "compressing": "^1.10.1"
   },
   "dependencies": {
-    "asar": "^3.2.0"
+    "asar": "^3.2.0",
+    "typescript": "^5.5.3"
   }
 }
